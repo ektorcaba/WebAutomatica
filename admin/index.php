@@ -748,6 +748,10 @@ tinymce.init({
                             <label for="link_color">Color de enlaces</label>
                             <input type="text" name="link_color" id="link_color" class="form-control form-control-lg" placeholder="#FF0000" value="<?= $settings['link_color']; ?>">
                     </div>
+                    <div class="col-sm">
+                            <label for="google_tag">Google Analytics Tag (G-XXXXX)</label>
+                            <input type="text" name="google_tag" id="google_tag" class="form-control form-control-lg" placeholder="G-XXXXXXX" value="<?= $settings['google_tag']; ?>">
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-sm">
