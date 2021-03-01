@@ -1,0 +1,447 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /*background-color: #fff;*/
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/assets/bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+
+h1{
+    color: var(--maincolor);
+}
+
+h2{
+    color: var(--maincolor);
+}
+
+
+a{
+    text-decoration:none;
+    color: var(--linkcolor);
+
+}
+
+
+
+.topnav {
+
+    margin: 0;
+    padding: 0;
+    width: 220px;
+    position: absolute;
+    margin-top: 10px;
+    vertical-align: middle;
+}
+
+
+
+.topnav a {
+    display: block;
+    background-color: var(--maincolor);
+    color: rgb(238, 238, 238);
+    padding: 15px;
+    text-decoration: none;
+    color: var(--maintextcolor);
+}
+
+
+.topnav a:hover {
+    background-color:var(--secondarycolor);
+    color: var(--secondarytextcolor);
+}
+
+
+
+
+
+
+article img {
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+
+.wrap {
+max-width: 980px;
+margin: auto;
+padding:10px;
+background-color: #ffffff;
+margin-top: 80px;
+}
+
+header {
+    background-color: #fff;
+
+}
+
+.logo {
+    width: 300px;
+    margin-top: 20px;
+}
+
+main {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-left: 220px;
+    min-width: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    font-size: .7em;
+    text-align: center;
+    bottom: 0;
+    min-height: 50px;
+    padding: 0px;
+    color: #222222;
+    margin-left: 220px;
+}
+
+footer nav a{
+    padding: .5em;
+    text-decoration: none;
+    color: #444;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+footer nav a:hover{
+    background-color: #e5e5e5;
+}
+
+footer .copy {
+    color:#888;
+    padding: 20px;
+}
+
+
+.cover {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+
+.imgbox{
+    width:200px;
+    /*height: 100px;*/
+    overflow: hidden;
+    min-height: 100px;
+    min-width: 200px;
+}
+
+.iframebox{
+    width:200px;
+
+    min-height: 200px;
+    min-width: 200px;
+
+}
+
+
+
+
+
+.cover .entry img{
+    max-height: 200px;
+}
+
+
+.cover .entry:hover {
+
+    border: 1px solid var(--maincolor);
+    cursor:pointer;
+}
+
+
+.cover .entry {
+    width: 210px;
+    text-align: center;
+    margin-bottom: 20px;
+    height:auto;
+    vertical-align: bottom;
+    border: 1px solid #ddd;
+    padding: 10px;
+    position:relative;
+
+}
+
+.onbottom {
+
+    position:absolute;
+    bottom:0;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:24px;
+    width:100%;
+    
+}
+
+.onbottom a {
+    text-decoration: none;
+    color: var(--linkcolor);
+}
+
+
+
+.title a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--maincolor);
+    font-size: 1em;
+
+    
+}
+
+
+.title {
+
+    margin-bottom: 50px;
+    
+}
+
+
+article p {
+
+color: #999999
+
+}
+
+
+.btn{
+    padding: 20px;
+    color: #777 !important;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border:1px solid #ddd;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    bottom: 0px;
+
+}
+
+.btn:hover{
+    background-color: rgb(238, 238, 238);
+}
+
+.spacer{
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.search input.box{
+    height: 40px;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    font-size: 24px;
+    color: #777;
+
+}
+
+
+
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .topnav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .topnav a {float: left;}
+  main {margin-left: 0;}
+
+.cover .entry {
+    width: 100%;
+}
+
+.cover .entry img {
+    /*max-height: unset;*/
+}
+
+.imgbox {
+    width: 100%;
+}
+
+
+footer {
+    margin-left: 0px;
+}
+
+
+}
+
+
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+    display: block;
+    padding: 14px;
+    border: 1px solid #ccc;
+    min-width: -webkit-fill-available;
+    max-width: -webkit-fill-available;
+  }
+  
+
+
+
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 700px) {
+  .topnav a {
+    text-align: center;
+    float: none;
+  }
+
+
+  .topnav input[type=text] {
+
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+
+
+
+}
+
+
+
+article iframe {
+    width:100%;
+    height:450px;
+}
+
+
+article {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+    .collapsible {
+        display: none;
+    }
+
+@media only screen  and (max-width: 700px) {
+
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+
+
+    .collapsible {
+        margin-top:20px;
+        display: initial;
+      background-color: #777;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active, .collapsible:hover {
+      background-color: #555;
+    }
+
+    .topnav {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+
+    }
+
+
+
+}
+
+
+
+
+
+.leftbox{
+    display: none;
+}
+
+.rightbox{
+    display: none;
+}
+
+
+
+
+
+@media only screen  and (min-width: 1200px) {
+
+.mainwrap {
+    display: flex;
+    gap: 0px;
+}
+
+
+.leftbox{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: 0px;
+    text-align: end;
+}
+
+.rightbox{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: auto;
+}
+
+.leftbox iframe{
+    margin-top: 130px;
+}
+
+.rightbox iframe{
+    margin-top: 130px;
+}
+
+
+}

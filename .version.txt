@@ -1,0 +1,13 @@
+v1.1
+- 1.1 - Añadida carpeta Admin protegida
+- 1.1 - Corregido tamaño de imagen en movil en CSS
+- 1.1 - Corregido salto de linea al añadir menu
+- Agregado Instalador desde cero
+- Terminado Panel de administracion
+- Modificacion del tamaño de las imagenes y del bloque de imagen del producto
+- Agregado bloques izquierda, derecha y central dentro de la carpeta blocks para la publicidad
+- agregados 2 estilos mas iguales pero sin la imagen de fondo
+- optimizacion de solicitudes a amazon
+- precache de imagenes en la primera peticion
+- corregido gestion de tildes en los slugs de las keywords
+- Sin cambios en la BD
