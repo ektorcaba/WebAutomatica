@@ -224,7 +224,9 @@ function search_amazon_products($keyword_link, $is_menu=0){
             }
 
             return $products;
-        }elseif(file_exists("inc/cache/".sha1($keyword_slug).".json")){
+        }
+        
+        if(file_exists("inc/cache/".sha1($keyword_slug).".json")){
 
 
 
@@ -248,7 +250,7 @@ function search_amazon_products($keyword_link, $is_menu=0){
             return $products;
         }else{
 
-            return array();
+            //return array();
         }
 
 
