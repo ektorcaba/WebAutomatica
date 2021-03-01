@@ -1,1 +1,8 @@
 inc/settings.php
+inc/cache/*.html
+inc/cache/!index.html
+inc/cache/*.json
+inc/cache_img/*.*
+inc/cache_img/!index.html
+assets/uploads/*.*
+assets/uploads/!index.html
