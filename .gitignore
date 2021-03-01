@@ -6,6 +6,6 @@ inc/cache_img/*.*
 inc/cache_img/!index.html
 assets/uploads/*.*
 assets/uploads/!index.html
-assets/bg.jpg
 assets/favicon.png
 assets/logo.svg
+assets/bg.jpg
