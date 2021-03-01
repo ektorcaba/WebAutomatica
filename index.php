@@ -78,11 +78,11 @@
 
         if(empty($_GET['k'])){
 
-            echo "<h1>".$settings['slogan']."</h1>";
+            echo "<h1>".utf8_decode($settings['slogan'])."</h1>";
             
             print '<article>';
 
-            echo htmlspecialchars_decode(($settings['main_text']));
+            echo htmlspecialchars_decode(utf8_decode($settings['main_text']));
             print '</article>';
 
         }
