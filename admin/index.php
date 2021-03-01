@@ -2,9 +2,6 @@
 
 //require_auth("admin","opalucas2021!$");
 
-echo $_SERVER['REQUEST_URI'];
-die();
-
 
 
 
