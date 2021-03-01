@@ -36,3 +36,6 @@ for (i = 0; i < coll.length; i++) {
 </script>   
 </body>
 </html>
+<?php
+//test
+?>
