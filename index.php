@@ -66,10 +66,10 @@
 
                 
                 if(!empty($entry['spintitle'])){
-                    print '<h1>'.mb_strtoupper(($entry['spintitle']),'utf-8').'</h1>';
+                    print '<h1>'.mb_strtoupper(utf8_encode($entry['spintitle']),'utf-8').'</h1>';
                 }
 
-                echo htmlspecialchars_decode(($entry['spintext']));
+                echo htmlspecialchars_decode(utf8_encode($entry['spintext']));
                 
 
             }
@@ -78,11 +78,11 @@
 
         if(empty($_GET['k'])){
 
-            echo "<h1>".utf8_decode($settings['slogan'])."</h1>";
+            echo "<h1>".utf8_encode($settings['slogan'])."</h1>";
             
             print '<article>';
 
-            echo htmlspecialchars_decode(utf8_decode($settings['main_text']));
+            echo htmlspecialchars_decode(utf8_encode($settings['main_text']));
             print '</article>';
 
         }
