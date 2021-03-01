@@ -190,7 +190,7 @@ function search_amazon_products($keyword_link, $is_menu=0){
 
 
 
-    if($keyword['cache_type'] === "html"){
+    //if($keyword['cache_type'] === "html"){
 
 
 
@@ -228,7 +228,7 @@ function search_amazon_products($keyword_link, $is_menu=0){
 
             return array();
         }
-    }else{
+    //}else{
 
 
         if(file_exists("inc/cache/".sha1($keyword_slug).".json")){
@@ -262,7 +262,7 @@ function search_amazon_products($keyword_link, $is_menu=0){
 
 
 
-    }
+    //}
 
 
 
