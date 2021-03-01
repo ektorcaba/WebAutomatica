@@ -219,7 +219,7 @@ global $cache_directory, $db;
     sleep(rand(5,8));
 
 }else{
-    echo sha1($palabra_clave);
+
     print "EXISTE ARCHIVO!\n";
 
 }

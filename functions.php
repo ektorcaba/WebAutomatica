@@ -15,21 +15,13 @@ require 'inc/class.spinner.php';
 
 
 
-$st = $db->prepare('SELECT * FROM domains WHERE domain=:domain');
+$st = $db->prepare('SELECT * FROM domains WHERE id=1');
 
-$st->execute(array('domain'=> $_SERVER['HTTP_HOST']));
+$st->execute();
 
 
 $domain = $st->fetch(PDO::FETCH_ASSOC);
 
-
-
-if(!$domain){
-
-    $domain = $db->query('SELECT * FROM domains')->fetch();
-    
-
-}
 
 
 $dominio = $domain['domain'];
