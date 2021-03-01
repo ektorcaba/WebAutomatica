@@ -142,7 +142,7 @@ if(!file_exists('../inc/settings.php')){
         <div class="card mt-5">
             <div class="card-body">
                 <h2 class="card-title" id="atext">BASE DE DATOS</h2>
-                <form autocomplete="off" action="" method="post">
+                <form autocomplete="off" action="?" method="post">
                             <div class="col-sm">
                                 <label for="dbname">DB Name</label>
                                 <input type="text" autocomplete="off" name="dbname" id="dbname" class="form-control form-control-lg">
@@ -611,7 +611,7 @@ tinymce.init({
 
     <div class="card">
         <div class="card-body">
-            <form action="" method="post">
+            <form action="?" method="post">
             <input type="hidden" name="settings" value="1">
 
 <?php
@@ -823,7 +823,7 @@ if($s->rowCount()>0){
 <div class="card mt-5">
     <div class="card-body">
         <h2 class="card-title" id="atext">AGREGAR TEXTOS</h2>
-        <form action="" method="post">
+        <form action="?" method="post">
             <input type="hidden" name="addtext" value="1">
                     <div class="col-sm">
                         <label for="menu">KEYWORD ID</label>
@@ -861,7 +861,7 @@ if($s->rowCount()>0){
     <div class="card mt-5">
     <div class="card-body">
         <h2 class="card-title" id="amenu">AGREGAR MENU</h2>
-        <form action="" method="post">
+        <form action="?" method="post">
             <input type="hidden" name="addmenu" value="1">
 
                 <div class="row">
@@ -919,7 +919,7 @@ if($s->rowCount()>0){
 <div class="card mt-5">
     <div class="card-body">
         <h2 class="card-title" id="akeyword">AGREGAR KEYWORDS</h2>
-        <form action="" method="post">
+        <form action="?" method="post">
             <input type="hidden" name="addkeywords" value="1">
 
 
