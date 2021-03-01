@@ -16,9 +16,7 @@ require 'inc/class.spinner.php';
 
 
 $st = $db->prepare('SELECT * FROM domains WHERE id=1');
-
 $st->execute();
-
 
 $domain = $st->fetch(PDO::FETCH_ASSOC);
 
