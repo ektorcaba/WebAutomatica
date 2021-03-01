@@ -45,7 +45,15 @@
     <link rel="stylesheet" href="/assets/style_<?= $estilo_menu; ?>.css">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?= $settings['google_tag'];?>"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', '<?= $settings['google_tag'];?>');
+</script>
 </head>
 <body>
 <div class="mainwrap">

@@ -84,9 +84,9 @@ if(!file_exists('../inc/settings.php')){
 
 
 
-            $db->query("INSERT INTO `settings` (`id`, `domain_id`, `key`, `value`) VALUES (1, 1, 'sitename', 'Web'),(2, 1, 'slogan', 'Una web automatica'),(3, 1, 'main_color', '#ff5987'),(4, 1, 'secondary_color', '#ccc'),(5, 1, 'logo', '/assets/logo.svg'),(6, 1, 'main_text', '<h1>Portada en html</h1>'),(7, 1, 'default_term', 'palabra clave'),(8, 1, 'source_text', '{texto de prueba|texto principal}'),(9, 1, 'description', 'Descripcion SEO para google'),(10, 1, 'maintext_color', '#ffffff'),(11, 1, 'secondarytext_color', '#222'),(12, 1, 'link_color', '#222222'),(13, 1, 'style_menu', 'vertical'),(14, 1, 'num_category_results', '42'),(15, 1, 'num_results', '36'),(16, 1, 'num_related_results', '15'),(17, 1, 'amazon_tag', 'usuario.com.es-21'),(18, 1, 'apikey', 'AAAAAAAAAAAAAAAAAA'),(19, 1, 'apisecret', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'),(20, 1, 'cachedir', 'cache/'),(21, 1, 'interlinking', '40')");
+            $db->query("INSERT INTO `settings` (`id`, `domain_id`, `key`, `value`) VALUES (1, 1, 'sitename', 'Web'),(2, 1, 'slogan', 'Una web automatica'),(3, 1, 'main_color', '#ff5987'),(4, 1, 'secondary_color', '#ccc'),(5, 1, 'logo', '/assets/logo.svg'),(6, 1, 'main_text', '<h1>Portada en html</h1>'),(7, 1, 'default_term', 'palabra clave'),(8, 1, 'source_text', '{texto de prueba|texto principal}'),(9, 1, 'description', 'Descripcion SEO para google'),(10, 1, 'maintext_color', '#ffffff'),(11, 1, 'secondarytext_color', '#222'),(12, 1, 'link_color', '#222222'),(13, 1, 'style_menu', 'vertical'),(14, 1, 'num_category_results', '42'),(15, 1, 'num_results', '36'),(16, 1, 'num_related_results', '15'),(17, 1, 'amazon_tag', 'usuario.com.es-21'),(18, 1, 'apikey', 'AAAAAAAAAAAAAAAAAA'),(19, 1, 'apisecret', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'),(20, 1, 'cachedir', 'cache/'),(21, 1, 'interlinking', '40'),(22, 1, 'google_tag', 'G-XXXXXXXXXX')");
 
-
+            
             $db->query('ALTER TABLE `contents` ADD PRIMARY KEY (`id`)');
             $db->query('ALTER TABLE `domains` ADD PRIMARY KEY (`id`)');
             $db->query('ALTER TABLE `generated_spintext` ADD PRIMARY KEY (`id`)');
