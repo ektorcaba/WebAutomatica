@@ -1,6 +1,6 @@
 <?php
 
-chdir('/var/www/vhosts/lasexual.com.es/httpdocs/inc/');
+//chdir('/var/www/vhosts/lasexual.com.es/httpdocs/inc/');
 
 
 set_time_limit(0);
