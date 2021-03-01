@@ -140,8 +140,6 @@ global $cache_directory, $db;
     if($is_menu == 1){
         $palabra_clave = str_replace("-"," ", $palabra_clave);
     }
-
-
     
     if(( !file_exists($cache_directory.sha1($palabra_clave).".html")) AND ( !file_exists($cache_directory.sha1($palabra_clave).".json")))
     {
@@ -221,7 +219,7 @@ global $cache_directory, $db;
     sleep(rand(5,8));
 
 }else{
-
+    echo sha1($palabra_clave);
     print "EXISTE ARCHIVO!\n";
 
 }
