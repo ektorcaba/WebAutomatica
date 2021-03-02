@@ -283,12 +283,12 @@ if(!empty($_POST['addkeywords'])){
 
                 //$result = preg_replace("/[^a-zA-Z0-9]+/", " ", html_entity_decode(trim($ts[1]), ENT_QUOTES));
                 $result = clean(html_entity_decode(trim($ts[1]), ENT_QUOTES));
-                $keywords_temp[] = array('amazon_term' => $ts[0], 'keyword' => $result, 'slug' => clean(strtolower($result)));
+                $keywords_temp[] = array('amazon_term' => trim(str_replace("-"," ", $ts[0])), 'keyword' => trim(str_replace("-"," ", $ts[1])), 'slug' => clean(strtolower($result)));
             }else{
 
                 //$result = preg_replace("/[^a-zA-Z0-9]+/", " ", html_entity_decode(trim($ts[0]), ENT_QUOTES));
                 $result = clean(html_entity_decode(trim($ts[0]), ENT_QUOTES));
-                $keywords_temp[] = array('amazon_term' => $result, 'keyword' => $result, 'slug' => clean(strtolower($result)));                
+                $keywords_temp[] = array('amazon_term' => trim(str_replace("-"," ", $ts[0])), 'keyword' => trim(str_replace("-"," ", $ts[0])), 'slug' => clean(strtolower($result)));                
             }
  
 
