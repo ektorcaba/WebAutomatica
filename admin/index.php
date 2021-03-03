@@ -1127,7 +1127,7 @@ function clean($string)
     //Esta parte se encarga de eliminar cualquier caracter extraño
     
     $string = str_replace(
-        array("¨", "º", "-", "~",
+        array("¨", "º", "~",
              "#", "@", "|", "!",
              "·", "$", "%", "&", "/",
              "(", ")", "?", "'", "¡",
