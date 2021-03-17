@@ -62,7 +62,8 @@ if(!file_exists('../inc/settings.php')){
                 `keyword` varchar(255) NOT NULL,
                 `slug` varchar(255) NOT NULL,
                 `indexed` int(11) DEFAULT NULL,
-                `cache_type` varchar(10) NOT NULL
+                `cache_type` varchar(10) NOT NULL,
+                `fecha` timestamp NULL DEFAULT NULL
             )');
 
 
