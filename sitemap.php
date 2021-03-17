@@ -16,14 +16,16 @@ header('Content-type: text/xml');
 
    foreach($db->query("SELECT * FROM menu")->fetchAll() as $link){
 
-      echo '<url><loc>'.$actual_link."/categoria/".str_replace(" ","-",strtolower($link['url'])).'</loc><lastmod>'.date('Y-m-d').'</lastmod><changefreq>daily</changefreq></url>';
+      //echo '<url><loc>'.$actual_link."/categoria/".str_replace(" ","-",strtolower($link['url'])).'</loc><lastmod>'.date('Y-m-d').'</lastmod><changefreq>daily</changefreq></url>';
+      echo '<url><loc>'.$actual_link."/categoria/".str_replace(" ","-",strtolower($link['url'])).'</loc></url>';
 	   
    }
 
 
    foreach($db->query("SELECT DISTINCT(slug) FROM keywords WHERE indexed=1")->fetchAll() as $link){
 
-      echo '<url><loc>'.$actual_link.'/'.$link['slug'].'</loc><lastmod>'.date('Y-m-d').'</lastmod><changefreq>daily</changefreq></url>';
+      //echo '<url><loc>'.$actual_link.'/'.$link['slug'].'</loc><lastmod>'.date('Y-m-d').'</lastmod><changefreq>daily</changefreq></url>';
+      echo '<url><loc>'.$actual_link.'/'.$link['slug'].'</loc></url>';
 
 
    }
