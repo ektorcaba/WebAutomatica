@@ -260,7 +260,7 @@ if(( !file_exists($cache_directory.sha1($palabra_clave).".html")) AND ( !file_ex
         $dats = $db->query('SELECT * FROM keywords WHERE id='.$palabra_clave_array['id'])->fetch();
 
         if($dats['indexed'] != 1){
-            $db->query("UPDATE keywords SET indexed=1, cache_type='json' WHERE id=".$palabra_clave_array['id']);
+            $db->query("UPDATE keywords SET indexed=1, cache_type='json', fecha=NOW() WHERE id=".$palabra_clave_array['id']);
         }
 
 
@@ -274,7 +274,7 @@ if(( !file_exists($cache_directory.sha1($palabra_clave).".html")) AND ( !file_ex
     $dats = $db->query('SELECT * FROM keywords WHERE id='.$palabra_clave_array['id'])->fetch();
 
     if($dats['indexed'] != 1){
-        $db->query("UPDATE keywords SET indexed=1, cache_type='json' WHERE id=".$palabra_clave_array['id']);
+        $db->query("UPDATE keywords SET indexed=1, cache_type='json', fecha=NOW() WHERE id=".$palabra_clave_array['id']);
     }
     
 
