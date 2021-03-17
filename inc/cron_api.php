@@ -70,8 +70,10 @@ foreach($db->query("SELECT * FROM keywords WHERE indexed IS NULL") as $keyword){
     if($counter<$cantidad_a_publicar){
         download_data_keyword($keyword);
         $counter++;
+        //simula tiempo 18-52 minutos entre publicaciones
+        sleep(1080,3120);
     }else{
-        //espera al dia siguiente
+        //espera al dia siguiente para publicar
         sleep(mt_rand(50400,86400));
         $counter = 0;
         $cantidad_a_publicar = mt_rand(11,27);
