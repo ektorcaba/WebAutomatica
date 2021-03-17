@@ -61,10 +61,23 @@ foreach($db->query("SELECT * FROM menu") as $menu){
 }
 
 
+$counter = 0;
+$cantidad_a_publicar = rand(11,27);
+
 
 foreach($db->query("SELECT * FROM keywords WHERE indexed IS NULL") as $keyword){
 
-    download_data_keyword($keyword);
+    if($counter<$cantidad_a_publicar){
+        download_data_keyword($keyword);
+        $counter++;
+    }else{
+        //espera al dia siguiente
+        sleep(rand(50400,86400));
+        $counter = 0;
+        $cantidad_a_publicar = rand(11,27);
+        download_data_keyword($keyword);
+    }
+    
 
 }
 
