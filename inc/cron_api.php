@@ -62,7 +62,7 @@ foreach($db->query("SELECT * FROM menu") as $menu){
 
 
 $counter = 0;
-$cantidad_a_publicar = rand(11,27);
+$cantidad_a_publicar = mt_rand(11,27);
 
 
 foreach($db->query("SELECT * FROM keywords WHERE indexed IS NULL") as $keyword){
@@ -72,9 +72,9 @@ foreach($db->query("SELECT * FROM keywords WHERE indexed IS NULL") as $keyword){
         $counter++;
     }else{
         //espera al dia siguiente
-        sleep(rand(50400,86400));
+        sleep(mt_rand(50400,86400));
         $counter = 0;
-        $cantidad_a_publicar = rand(11,27);
+        $cantidad_a_publicar = mt_rand(11,27);
         download_data_keyword($keyword);
     }
     
