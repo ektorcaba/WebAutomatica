@@ -52,13 +52,35 @@ foreach($db->query("SELECT * FROM menu") as $menu){
 
 
 
-
+$counter = 0;
+$cantidad_a_publicar = mt_rand(11,27);
 
 foreach($db->query("SELECT * FROM keywords WHERE indexed IS NULL") as $keyword){
 
-    download_data_keyword($keyword);
+    if($counter<$cantidad_a_publicar){
+        download_data_keyword($keyword);
+        $counter++;
+    }else{
+        //espera al dia siguiente
+        sleep(mt_rand(50400,86400));
+        $counter = 0;
+        $cantidad_a_publicar = mt_rand(11,27);
+        download_data_keyword($keyword);
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -270,7 +292,7 @@ if(( !file_exists($cache_directory.sha1(str_replace("-"," ", $porig)).".html")) 
 
                 $existe = 1;
 
-                $db->query("UPDATE keywords SET indexed=1, cache_type='html' WHERE id=".$palabra_clave_array['id']);
+                $db->query("UPDATE keywords SET indexed=1, cache_type='html', fecha=NOW() WHERE id=".$palabra_clave_array['id']);
 
                 break;
             }else{
@@ -306,7 +328,7 @@ if(( !file_exists($cache_directory.sha1(str_replace("-"," ", $porig)).".html")) 
     $dats = $db->query('SELECT * FROM keywords WHERE id='.$palabra_clave_array['id'])->fetch();
 
     if($dats['indexed'] != 1){
-        $db->query("UPDATE keywords SET indexed=1, cache_type='html' WHERE id=".$palabra_clave_array['id']);
+        $db->query("UPDATE keywords SET indexed=1, cache_type='html', fecha=NOW() WHERE id=".$palabra_clave_array['id']);
     }
     
 
