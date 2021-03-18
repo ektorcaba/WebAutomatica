@@ -5,7 +5,7 @@
             if(!empty($ilink)){
 
                 foreach($ilink as $link){
-                    echo '<a href="/'.$link['slug'].'">'.utf8_encode($link['keyword']).'</a>';
+                    echo '<a href="/'.$link['slug'].'">'.($link['keyword']).'</a>';
                 }
 
             }
