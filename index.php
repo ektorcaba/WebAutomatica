@@ -108,7 +108,6 @@
 
 
     ?>
-    
     <div class="cover">
         
         <?php
@@ -118,7 +117,6 @@
             }else{
                 $key = $_GET['k'];
             }
-
 
 
 
