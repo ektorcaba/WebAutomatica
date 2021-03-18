@@ -18,7 +18,7 @@
 
             if(empty($content_amazon)){
 
-                $content_amazon = search_rand_amazon_products(0);
+                $content_amazon = search_rand_amazon_products($key);
 
             }
 

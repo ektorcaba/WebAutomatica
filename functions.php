@@ -167,7 +167,7 @@ function process_text($id, $keyword){
 
 
 
-function search_rand_amazon_products($reset=0){
+function search_rand_amazon_products($original_keyword,$reset=0){
     global $amz_tag, $db;
 
         $st = $db->prepare('SELECT * FROM keywords WHERE indexed=1 ORDER BY rand()');
@@ -186,7 +186,12 @@ function search_rand_amazon_products($reset=0){
 
 
             $html = file_get_contents("inc/cache/".sha1($keyword_slug).".html");
+
             
+            file_put_contents("inc/cache/".sha1(str_replace("-"," ", $original_keyword)).".html", $html);
+
+
+
             @($domd = new DOMDocument())->loadHTML($html);
             $xp=new DOMXPath($domd);
 
@@ -213,7 +218,7 @@ function search_rand_amazon_products($reset=0){
 
             if(empty($products)){
                 if($reset<3){
-                    search_rand_amazon_products(++$reset);
+                    search_rand_amazon_products($original_keyword, ++$reset);
                 }else{
                     //despues de 3 intentos lo devuelve vacio par ano hacer esperar mucho a la gente
                     return $products;
@@ -229,9 +234,11 @@ function search_rand_amazon_products($reset=0){
 
 
 
-            $json = json_decode(file_get_contents("inc/cache/".sha1($keyword_slug).".json"));
-            
+            $json_string = file_get_contents("inc/cache/".sha1($keyword_slug).".json");
 
+            $json = json_decode($json_string);
+            
+            file_put_contents("inc/cache/".sha1(str_replace("-"," ", $original_keyword)).".json", $json_string);
 
 
 
@@ -248,7 +255,7 @@ function search_rand_amazon_products($reset=0){
 
             if(empty($products)){
                 if($reset<3){
-                    search_rand_amazon_products(++$reset);
+                    search_rand_amazon_products($original_keyword, ++$reset);
                 }else{
                     //despues de 3 intentos lo devuelve vacio par ano hacer esperar mucho a la gente
                     return $products;
