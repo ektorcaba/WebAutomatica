@@ -89,7 +89,7 @@ footer .copy {
 .cover {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 20px;
 
     justify-content: center;
     width: 100%;
