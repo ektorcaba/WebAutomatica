@@ -16,6 +16,13 @@
             $content_amazon = search_amazon_products($key,1);
 
 
+            if(empty($content_amazon)){
+
+                $content_amazon = search_rand_amazon_products(0);
+
+            }
+
+
             //PRE CACHE IMAGES
             foreach($content_amazon as $product){
                 cacheimg($product['image']);

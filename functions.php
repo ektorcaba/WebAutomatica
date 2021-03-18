@@ -167,6 +167,121 @@ function process_text($id, $keyword){
 
 
 
+function search_rand_amazon_products($reset=0){
+    global $amz_tag, $db;
+
+        $st = $db->prepare('SELECT * FROM keywords WHERE indexed=1 ORDER BY rand()');
+        $st->execute();
+        $keyword = $st->fetch(PDO::FETCH_ASSOC);
+
+        $keyword_slug = $keyword['slug'];
+
+
+
+    //if($keyword['cache_type'] === "html"){
+
+
+
+        if(file_exists("inc/cache/".sha1($keyword_slug).".html")){
+
+
+            $html = file_get_contents("inc/cache/".sha1($keyword_slug).".html");
+            
+            @($domd = new DOMDocument())->loadHTML($html);
+            $xp=new DOMXPath($domd);
+
+            $xquery = '//div[@data-component-type="s-search-result"]';           
+            $links = $xp->query($xquery);
+
+            foreach($links as $l){
+                    if(@(trim($xp->query('.//span[@class="s-label-popover-default"]',$l)->item(0)->textContent)) != "Patrocinado"){
+
+                        $lpart = explode("/dp/",trim($xp->query('.//h2/a',$l)->item(0)->getAttribute('href')));
+
+
+                        $products[] = array(
+                            'asin' => $l->getAttribute("data-asin"),
+                            'title' => trim($xp->query('.//h2',$l)->item(0)->textContent),
+                            'image' => $xp->query('.//img[@class="s-image"]', $l)->item(0)->getAttribute("src"),
+                            'link' => 'https://www.amazon.es'.$lpart[0].'/dp/'.$l->getAttribute("data-asin").'?tag='.$amz_tag,
+                            'price' => trim($xp->query('.//span[@class="a-offscreen"]',$l)->item(0)->textContent)
+                        );
+
+                    }
+                
+            }
+
+            if(empty($products)){
+                if($reset<3){
+                    search_rand_amazon_products(++$reset);
+                }else{
+                    //despues de 3 intentos lo devuelve vacio par ano hacer esperar mucho a la gente
+                    return $products;
+                }
+                
+            }else{
+                return $products;
+            }
+            
+        }
+        
+        if(file_exists("inc/cache/".sha1($keyword_slug).".json")){
+
+
+
+            $json = json_decode(file_get_contents("inc/cache/".sha1($keyword_slug).".json"));
+            
+
+
+
+
+            foreach($json->SearchResult->Items as $entry){
+                        $products[] = array(
+                            'asin' => $entry->ASIN,
+                            'title' => $entry->ItemInfo->Title->DisplayValue,
+                            'image' => $entry->Images->Primary->Large->URL,
+                            'link' => $entry->DetailPageURL,
+                            'price' => $entry->Offers->Listings[0]->Price->Amount." ".($entry->Offers->Listings[0]->Price->Currency?"€":$entry->Offers->Listings[0]->Price->Currency)
+                        );
+            }
+
+
+            if(empty($products)){
+                if($reset<3){
+                    search_rand_amazon_products(++$reset);
+                }else{
+                    //despues de 3 intentos lo devuelve vacio par ano hacer esperar mucho a la gente
+                    return $products;
+                }
+                
+            }else{
+                return $products;
+            }
+
+        }else{
+            
+            //return array();
+        }
+
+
+
+
+
+    //}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
