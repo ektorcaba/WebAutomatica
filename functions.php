@@ -174,7 +174,7 @@ function search_rand_amazon_products($reset=0){
         $st->execute();
         $keyword = $st->fetch(PDO::FETCH_ASSOC);
 
-        $keyword_slug = $keyword['slug'];
+        $keyword_slug = str_replace("-"," ", $keyword['slug']);
 
 
 
