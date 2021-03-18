@@ -100,8 +100,15 @@
 
     <div class="spacer">&nbsp;</div>
 
+    <?php
 
-    <h2>ARTICULOS RELACIONADOS</h2>
+        if(!empty(array_slice($content_amazon,$settings['num_results'],$settings['num_related_results']) )){
+            echo "<h2>ARTICULOS RELACIONADOS</h2>";
+        }
+
+
+    ?>
+    
     <div class="cover">
         
         <?php
