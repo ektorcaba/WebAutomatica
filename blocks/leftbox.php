@@ -22,6 +22,6 @@
     $lbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=14&l=ur1&category=baby&banner=1WQFJQJ4RRRB69XPNEG2&f=ifr&linkID=640badee2e9e089436462e9ac253611b&t=ektorcaba-21&tracking_id=ektorcaba-21" width="160" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
         
 
-    echo $lbanner[rand(0,(count($lbanner)-1))];
+    //echo $lbanner[rand(0,(count($lbanner)-1))];
 
 ?>

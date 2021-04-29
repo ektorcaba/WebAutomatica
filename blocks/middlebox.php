@@ -34,5 +34,5 @@ $midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l
 
 ?>
 <center>
-<?php echo $midbanner[rand(0,(count($midbanner)-1))]; ?>
+<?php //echo $midbanner[rand(0,(count($midbanner)-1))]; ?>
 </center>
