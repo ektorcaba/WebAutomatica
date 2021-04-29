@@ -73,7 +73,7 @@
             <div class="topnav">
             <?php
                 foreach($settings['menu'] as $nav){
-                    echo '<a href="/categoria/'.str_replace(" ","-",strtolower($nav['url'])).'">'.($nav['text']).'</a>';
+                    echo '<a href="/categoria/'.str_replace(" ","-",strtolower($nav['url'])).'">'.strtoupper($nav['text']).'</a>';
                 }
             ?>
             <form action="https://www.google.es/search" target="_blank" id="gform">
