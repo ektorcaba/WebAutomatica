@@ -490,13 +490,18 @@ $upd_data[] = array(
 );
 
 
+$upd_data[] = array(
+    ':id' => 22,
+    ':domain_id' => $_POST['domain_id'],
+    ':key' => 'google_tag',
+    ':value' => $_POST['google_tag'],
+);
+
 
 foreach($upd_data as $u_data){
     //print_r($u_data);
     $upd_settings = $db->prepare("UPDATE settings SET domain_id=:domain_id, `key`=:key, value=:value WHERE id=:id");
     $upd_settings->execute($u_data);
-
-
 
 }
 
