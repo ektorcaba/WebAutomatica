@@ -89,7 +89,7 @@
             
             print '<article>';
 
-            echo htmlspecialchars_decode(utf8_encode($settings['main_text']));
+            echo htmlspecialchars_decode(($settings['main_text']));
             print '</article>';
 
         }
