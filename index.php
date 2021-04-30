@@ -76,7 +76,7 @@
                     print '<h1>'.mb_strtoupper(utf8_encode($entry['spintitle']),'utf-8').'</h1>';
                 }
 
-                echo htmlspecialchars_decode(($entry['spintext']));
+                echo htmlspecialchars_decode(utf8_encode($entry['spintext']));
                 
 
             }
