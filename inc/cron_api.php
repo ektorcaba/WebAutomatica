@@ -66,7 +66,7 @@ $cantidad_a_publicar = mt_rand(11,27);
 
 
 foreach($db->query("SELECT * FROM keywords WHERE indexed IS NULL") as $keyword){
-
+/*
     if($counter<$cantidad_a_publicar){
         download_data_keyword($keyword);
         $counter++;
@@ -79,6 +79,8 @@ foreach($db->query("SELECT * FROM keywords WHERE indexed IS NULL") as $keyword){
         $cantidad_a_publicar = mt_rand(11,27);
         download_data_keyword($keyword);
     }
+*/
+    download_data_keyword($keyword);
     
 
 }
