@@ -41,11 +41,12 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
           <meta itemprop="lowPrice" content="1.00" />
           <meta itemprop="offerCount" content="'.rand(rand(3,6),rand(12,35)).'" />
           <meta itemprop="highPrice" content="';
-          
+
+
           if(!empty($product['price'])){
-            echo $product['price'];
+            echo number_format($product['price'],2);
           }else{
-            echo 1;
+            echo "1.50";
           }
 
         echo '" />

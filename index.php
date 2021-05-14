@@ -47,7 +47,7 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
           <meta itemprop="highPrice" content="';
           
           if(!empty($product['price'])){
-            echo $product['price'];
+            echo number_format($product['price'],2);
           }else{
             echo 1;
           }
