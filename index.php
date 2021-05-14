@@ -35,7 +35,7 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
         <meta itemprop="description" content="'.eliminar_acentos(trimstring($product['title'],100)).'" />
         <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
         <meta itemprop="reviewCount" content="'.rand(rand(3,6),rand(12,35)).'" />
-        <meta itemprop="ratingValue" content="'.rand(4,5).'.0" />
+        <meta itemprop="ratingValue" content="4.'.rand(4,8).'" />
       </div>
         <div itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
           <link itemprop="url" href="'.$product['link'].'" />
