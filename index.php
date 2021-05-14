@@ -34,9 +34,18 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
         <link itemprop="image" href="'.cacheimg($product['image']).'" />
         <meta itemprop="description" content="'.eliminar_acentos(trimstring($product['title'],100)).'" />
         <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
-        <meta itemprop="reviewCount" content="'.rand(rand(3,6),rand(12,35)).'" />
-        <meta itemprop="ratingValue" content="4.'.rand(4,8).'" />
-      </div>
+            <meta itemprop="reviewCount" content="'.rand(rand(3,6),rand(12,35)).'" />
+            <meta itemprop="ratingValue" content="4.'.rand(4,8).'" />
+        </div>
+        <div itemprop="review" itemtype="http://schema.org/Review" itemscope>
+            <div itemprop="author" itemtype="http://schema.org/Person" itemscope>
+            <meta itemprop="name" content="'.$settings['sitename'].'" />
+            </div>
+            <div itemprop="reviewRating" itemtype="http://schema.org/Rating" itemscope>
+                <meta itemprop="ratingValue" content="'.rand(4,5).'" />
+                <meta itemprop="bestRating" content="5" />
+            </div>
+        </div>
         <div itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
           <link itemprop="url" href="'.$product['link'].'" />
           <meta itemprop="availability" content="https://schema.org/InStock" />
