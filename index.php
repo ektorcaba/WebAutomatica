@@ -1,26 +1,78 @@
 <?php require "header.php"; ?>
+<?php
+
+
+
+if(!isset($_GET['k'])){
+    $key = $settings['default_term'];
+}else{
+    $key = $_GET['k'];
+}
+
+
+$content_amazon = search_amazon_products($key,1);
+
+
+if(empty($content_amazon)){
+
+    $content_amazon = search_rand_amazon_products($key);
+
+}
+
+
+
+$i = 0;
+
+foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
+
+    if($i == 0){
+        echo'<div itemtype="http://schema.org/Product" itemscope>
+        <meta itemprop="mpn" content="'.$product['asin'].'" />
+        <meta itemprop="name" content="'.eliminar_acentos(trimstring($product['title'],50)).'" />
+        <link itemprop="image" href="'.cacheimg($product['image']).'" />
+        <link itemprop="image" href="'.cacheimg($product['image']).'" />
+        <link itemprop="image" href="'.cacheimg($product['image']).'" />
+        <meta itemprop="description" content="'.eliminar_acentos(trimstring($product['title'],100)).'" />
+        <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+        <meta itemprop="reviewCount" content="'.rand(rand(3,6),rand(12,35)).'" />
+        <meta itemprop="ratingValue" content="'.rand(4,5).'.0" />
+      </div>
+        <div itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
+          <link itemprop="url" href="'.$product['link'].'" />
+          <meta itemprop="availability" content="https://schema.org/InStock" />
+          <meta itemprop="priceCurrency" content="EUR" />
+          <meta itemprop="itemCondition" content="https://schema.org/NewCondition" />
+          <meta itemprop="lowPrice" content="1.00" />
+          <meta itemprop="offerCount" content="'.rand(rand(3,6),rand(12,35)).'" />
+          <meta itemprop="highPrice" content="';
+          
+          if(!empty($product['price'])){
+            echo $product['price'];
+          }else{
+            echo 1;
+          }
+
+        echo '" />
+        </div>
+        <meta itemprop="sku" content="'.$product['asin'].'" />
+        <div itemprop="brand" itemtype="http://schema.org/Brand" itemscope>
+          <meta itemprop="name" content="AMAZON" />
+        </div>
+      </div>';
+
+        $i++;
+    }
+}
+
+?>
 
         <main>
+
 
 
     <div class="cover">
         <?php
 
-            if(!isset($_GET['k'])){
-                $key = $settings['default_term'];
-            }else{
-                $key = $_GET['k'];
-            }
-
-
-            $content_amazon = search_amazon_products($key,1);
-
-
-            if(empty($content_amazon)){
-
-                $content_amazon = search_rand_amazon_products($key);
-
-            }
 
 
             //PRE CACHE IMAGES
@@ -31,7 +83,6 @@
 
 
             foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
-
 
 
                 echo '<div class="entry" onclick="window.open(\''.$product['link'].'\')">';
