@@ -101,12 +101,12 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">Mas info</a></div></div>';
+                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank"></a></div></div>';
                     //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">COMPRAR '.$product['price'].'</a></p></div>';
                 }else{
                     //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">MAS INFORMACION</a></p></div>';
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">consultar</a></div></div>';  
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">Mas info</a></div></div>';  
+                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank"></a></div></div>';  
                 }
                 //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">MAS INFORMACION</a></p></div>';
 
