@@ -100,11 +100,13 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
                 echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],85)).'</a></p>';
 
                 if(!empty($product['price'])){
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
+                    //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
+                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">Ver precio</a></div></div>';
                     //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">COMPRAR '.$product['price'].'</a></p></div>';
                 }else{
                     //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">MAS INFORMACION</a></p></div>';
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">consultar</a></div></div>';    
+                    //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">consultar</a></div></div>';  
+                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">Ver precio</a></div></div>';  
                 }
                 //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">MAS INFORMACION</a></p></div>';
 

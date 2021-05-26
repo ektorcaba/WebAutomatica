@@ -101,10 +101,11 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
 
                 echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimstring($product['title'],85)).'</a></p>';
                 if(!empty($product['price'])){
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
+                    //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
+                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">Ver precio</a></div></div>';
                 }else{
 
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">consultar</a></div></div>'; 
+                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">Ver precio</a></div></div>'; 
                 }
 
 
@@ -189,10 +190,11 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
                 echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],75)).'</a></p>';
 
                 if(!empty($product['price'])){
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
+                    //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
+                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">Ver precio</a></div></div>';
                 }else{
 
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">consultar</a></div></div>';  
+                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">Ver precio</a></div></div>';  
                 }
 
 
