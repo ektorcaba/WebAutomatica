@@ -22,8 +22,8 @@ header('Content-type: text/xml');
    }
 
 
-   foreach($db->query("SELECT DISTINCT(slug) FROM keywords WHERE indexed=1")->fetchAll() as $link){
-
+   foreach($db->query("SELECT DISTINCT(slug) FROM keywords")->fetchAll() as $link){
+   //foreach($db->query("SELECT DISTINCT(slug) FROM keywords WHERE indexed=1")->fetchAll() as $link){
       //echo '<url><loc>'.$actual_link.'/'.$link['slug'].'</loc><lastmod>'.date('Y-m-d').'</lastmod><changefreq>daily</changefreq></url>';
       echo '<url><loc>'.$actual_link.'/'.$link['slug'].'</loc></url>';
 
