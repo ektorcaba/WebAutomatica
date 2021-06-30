@@ -447,3 +447,7 @@ article {
 
 
 }
+
+p.title {
+    word-break: break-word;
+}

@@ -97,7 +97,8 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
                 //echo'</div>';
 
 
-                echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],85)).'</a></p>';
+                //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],85)).'</a></p>';
+                echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(($product['title'])).'</a></p>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
