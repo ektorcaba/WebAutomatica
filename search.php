@@ -88,7 +88,7 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
                 echo '<div class="entry" onclick="window.open(\''.$product['link'].'\')">';
                 //echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img src="'.cacheimg(str_replace("_AC_UL320_","_AC_AC_SR98,95_",$product['image'])).'" alt="'.$product['title'].'"></a></div>';
 
-                echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.eliminar_acentos($product['title']).'"></a></div>';
+                echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
 
                 //echo '<div class="iframebox">'; 
 
@@ -98,7 +98,7 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
 
 
                 //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],85)).'</a></p>';
-                echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(($product['title'])).'</a></p>';
+                echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.(($product['title'])).'</a></p>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
