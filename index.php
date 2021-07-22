@@ -26,27 +26,27 @@ $i = 0;
 foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
 
     if($i == 0){
-        echo'<div itemtype="http://schema.org/Product" itemscope>
+        echo'<div itemtype="https://schema.org/Product" itemscope>
         <meta itemprop="mpn" content="'.$product['asin'].'" />
         <meta itemprop="name" content="'.eliminar_acentos(trimstring($product['title'],50)).'" />
         <link itemprop="image" href="'.cacheimg($product['image']).'" />
         <link itemprop="image" href="'.cacheimg($product['image']).'" />
         <link itemprop="image" href="'.cacheimg($product['image']).'" />
         <meta itemprop="description" content="'.eliminar_acentos(trimstring($product['title'],100)).'" />
-        <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+        <div itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating" itemscope>
             <meta itemprop="reviewCount" content="'.rand(rand(3,6),rand(12,35)).'" />
             <meta itemprop="ratingValue" content="4.'.rand(4,8).'" />
         </div>
-        <div itemprop="review" itemtype="http://schema.org/Review" itemscope>
-            <div itemprop="author" itemtype="http://schema.org/Person" itemscope>
+        <div itemprop="review" itemtype="https://schema.org/Review" itemscope>
+            <div itemprop="author" itemtype="https://schema.org/Person" itemscope>
             <meta itemprop="name" content="'.$settings['sitename'].'" />
             </div>
-            <div itemprop="reviewRating" itemtype="http://schema.org/Rating" itemscope>
+            <div itemprop="reviewRating" itemtype="https://schema.org/Rating" itemscope>
                 <meta itemprop="ratingValue" content="'.rand(4,5).'" />
                 <meta itemprop="bestRating" content="5" />
             </div>
         </div>
-        <div itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
+        <div itemprop="offers" itemtype="https://schema.org/AggregateOffer" itemscope>
           <link itemprop="url" href="'.$product['link'].'" />
           <meta itemprop="availability" content="https://schema.org/InStock" />
           <meta itemprop="priceCurrency" content="EUR" />
@@ -64,7 +64,7 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
         echo '" />
         </div>
         <meta itemprop="sku" content="'.$product['asin'].'" />
-        <div itemprop="brand" itemtype="http://schema.org/Brand" itemscope>
+        <div itemprop="brand" itemtype="https://schema.org/Brand" itemscope>
           <meta itemprop="name" content="AMAZON" />
         </div>
       </div>';
