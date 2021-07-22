@@ -85,7 +85,7 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
 
 
             foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $product){
-                echo '<div class="entry" onclick="window.open(\''.$product['link'].'\')">';
+                echo '<div class="entry">';
                 //echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img src="'.cacheimg(str_replace("_AC_UL320_","_AC_AC_SR98,95_",$product['image'])).'" alt="'.$product['title'].'"></a></div>';
 
                 echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
@@ -102,12 +102,12 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank"></a></div></div>';
+                    echo '<div class="onbottom"></div></div>';
                     //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">COMPRAR '.$product['price'].'</a></p></div>';
                 }else{
                     //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">MAS INFORMACION</a></p></div>';
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">consultar</a></div></div>';  
-                    echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank"></a></div></div>';  
+                    echo '<div class="onbottom"></div></div>';  
                 }
                 //echo '<p><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="btn">MAS INFORMACION</a></p></div>';
 
