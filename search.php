@@ -21,6 +21,8 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
 
 
 
+    /* 
+    //FICHA PRODUCTO
     if($i == 0){
         echo'<div itemtype="https://schema.org/Product" itemscope>
         <meta itemprop="mpn" content="'.$product['asin'].'" />
@@ -67,7 +69,7 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
       </div>';
 
         $i++;
-    }
+    }*/
 }
 
 ?>
@@ -98,7 +100,7 @@ foreach(array_slice($content_amazon,0,$settings['num_category_results']) as $pro
 
 
                 //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],85)).'</a></p>';
-                echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.(($product['title'])).'</a></p>';
+                echo '<p class="title">'.(($product['title'])).'</p>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
