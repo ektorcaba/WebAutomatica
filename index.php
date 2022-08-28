@@ -97,13 +97,13 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
             foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
 
 
-                echo '<div class="entry" itemscope itemtype="http://schema.org/Product">';
+                echo '<div class="entry">';
 
-                echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank" itemprop="url"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
+                echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
 
 
                 //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimstring($product['title'],85)).'</a></p>';
-                echo '<h2 class="title" itemprop="name">'.(($product['title'])).'</h2>';
+                echo '<h2 class="title">'.(($product['title'])).'</h2>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
@@ -187,13 +187,13 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
 
 
             foreach(array_slice($content_amazon,$settings['num_results'],$settings['num_related_results']) as $product){
-                echo '<div class="entry" itemscope itemtype="http://schema.org/Product">';
+                echo '<div class="entry">';
 
-                echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank" itemprop="url"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
+                echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
 
 
                 //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],75)).'</a></p>';
-                echo '<h2 class="title" itemprop="name">'.(($product['title'])).'</h2>';
+                echo '<h2 class="title">'.(($product['title'])).'</h2>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
