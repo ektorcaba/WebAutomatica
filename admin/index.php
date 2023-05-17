@@ -1,8 +1,6 @@
 <?php
 
-//require_auth("admin","opalucas2021!$");
-
-
+header('Cache-Control: no-cache, must-revalidate, max-age=0');
 
 
 
@@ -126,12 +124,13 @@ if(!file_exists('../inc/settings.php')){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instalar web automatica</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />       
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
 
 </head>
 <body>
@@ -211,6 +210,7 @@ if(isset($_GET['delmenu'])){
 if(isset($_GET['delkey'])){
 
     $db->query("DELETE FROM keywords WHERE id=".$_GET['delkey']);
+    $db->query("DELETE FROM contents WHERE keyword_id=".$_GET['delkey']);
     Header('Location: '.$_SERVER['PHP_SELF']);
     Exit(); //optional
 }
@@ -235,6 +235,28 @@ if(!empty($_POST['addtext'])){
     Exit(); //optional
 
 }
+
+
+if(!empty($_POST['updatetext'])){
+        
+
+    if(!empty($_POST['keyword_id'])){
+
+
+
+       // $sql = "UPDATE `contents` SET `spintitle`='".$_POST['spintitle']."',`spintext`='".$_POST['spintext']."' WHERE keyword_id=".intval($_POST['keyword_id']);
+
+        $sql = "INSERT INTO contents (id, keyword_id,spintitle,spintext) VALUES (NULL,'".$_POST['keyword_id']."','".$_POST['spintitle']."','".$_POST['spintext']."') ON DUPLICATE KEY UPDATE spintitle='".$_POST['spintitle']."', spintext='".$_POST['spintext']."';";
+        $db->query($sql);
+
+
+
+
+    }
+
+
+}
+
 
 
 
@@ -526,6 +548,7 @@ foreach($upd_data as $u_data){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrar opciones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -549,7 +572,7 @@ var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 tinymce.init({
   selector: '#main_text',
-  plugins: 'print preview powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed charmap  quickbars linkchecker emoticons advtable',
+  plugins: 'print preview importcss tinydrive searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap  quickbars emoticons',
   menubar: 'file edit view insert format tools table tc help',
   toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
   image_advtab: true,
@@ -561,6 +584,23 @@ tinymce.init({
   a11y_advanced_options: true,
 
 });
+
+
+tinymce.init({
+  selector: '#spintext',
+  plugins: 'print preview importcss tinydrive searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap  quickbars emoticons',
+  menubar: 'file edit view insert format tools table tc help',
+  toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
+  image_advtab: true,
+  height: 600,
+  image_caption: true,
+  quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+  toolbar_mode: 'sliding',
+  contextmenu: 'link image imagetools table configurepermanentpen',
+  a11y_advanced_options: true,
+
+});
+
 
 
   </script>
@@ -581,26 +621,26 @@ tinymce.init({
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">AUTOMATICA</a>
+        <a class="navbar-brand" href="/admin">AUTOMATICA</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#aopciones">OPCIONES</a>
+            <a class="nav-link active" aria-current="page" href="?opt=opciones">OPCIONES</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#acron">CRON</a>
+            <a class="nav-link" href="?opt=cron">CRON</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#amenu">MENU</a>
+            <a class="nav-link" href="?opt=menu">MENU</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#akeyword">KEYWORDS</a>
+            <a class="nav-link" href="?opt=keywords">KEYWORDS</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#atext">TEXTOS</a>
+            <!--<a class="nav-link" href="?opt=textos">TEXTOS</a>//-->
             </li>
         </ul>
         </div>
@@ -611,7 +651,26 @@ tinymce.init({
     <div class="container mb-5">
 
 
+<?php
 
+if(!isset($_GET['opt'])){
+
+    echo'<div class="card">
+    <div class="card-body">
+        <div class="row"><strong>Seleccione una de las opciones del menu superior</strong></div>
+    </div>
+    </div>';
+
+}
+
+
+
+
+
+
+if(isset($_GET['opt']) AND $_GET['opt'] == "opciones"){
+
+?>
 
     <div class="card">
         <div class="card-body">
@@ -621,6 +680,7 @@ tinymce.init({
 <?php
 
     $domain = $db->query('SELECT id, domain FROM domains WHERE id=1')->fetch();
+
 
     echo'<div class="row"><h2 id="aopciones">OPCIONES</h2><div class="col-sm"><label for="menu">DOMINIO</label>';
 
@@ -660,8 +720,6 @@ tinymce.init({
 
             
 ?>
-
-
 
 
                 <div class="row">
@@ -779,12 +837,12 @@ tinymce.init({
                         <textarea name="main_text" id="main_text" cols="30" rows="5" class="form-control form-control-lg" palceholder="{}"><?= $settings['main_text']; ?></textarea>
                     </div>
                 </div>
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-sm">
                         <label for="source_text">Texto Spintax</label>
                         <textarea name="source_text" id="source_text" cols="30" rows="3" class="form-control form-control-lg" palceholder="{}"><?= $settings['source_text']; ?></textarea>
                     </div>
-                </div>
+                </div>//-->
                 <div class="row">
                     <div class="col-sm">
                             <label for="default_term">Keyword principal portada</label>
@@ -800,6 +858,14 @@ tinymce.init({
         </div>
     </div>
 
+<?php
+
+                        }
+
+
+if(isset($_GET['opt']) AND $_GET['opt'] == "cron"){
+?>
+
 
     <div class="card mt-5">
     <div class="card-body">
@@ -807,8 +873,9 @@ tinymce.init({
                 <div class="row">
                     <div class="col-sm">
                         <p><strong>Version PHP necesaria:</strong> 7.3.26 o superior</p>
-                        <p><strong>PATH API CRON:</strong> <?=$_SERVER["DOCUMENT_ROOT"];?>/inc/cron_api.php (Plesk: <strong>httpdocs/inc/cron_api.php</strong>)</p>
-                        <p><strong>PATH HTML CRON:</strong> <?=$_SERVER["DOCUMENT_ROOT"];?>/inc/cron_scrap.php (Plesk: <strong>httpdocs/inc/cron_scrap.php</strong>)</p>
+                        <p><strong>PATH API CRON:</strong> <?=$_SERVER["DOCUMENT_ROOT"];?>/inc/cron_api.php (Plesk: <strong>httpdocs/inc/cron_api.php <a href="/inc/cron_api.php" target="_blank">Abrir</a></strong>)</p>
+                        <p><strong>PATH HTML CRON:</strong> <?=$_SERVER["DOCUMENT_ROOT"];?>/inc/cron_scrap.php (Plesk: <strong>httpdocs/inc/cron_scrap.php <a href="/inc/cron_scrap.php" target="_blank">Abrir</a></strong>)</p>
+                        
                     </div>
                 </div>
 
@@ -817,8 +884,12 @@ tinymce.init({
 </div>
 
 
+<?php
 
-    <?php
+                        }
+
+/*
+if(isset($_GET['opt']) AND $_GET['opt'] == "textos"){
 
 $s = $db->prepare("SELECT * FROM keywords");
 $s->execute();
@@ -861,6 +932,14 @@ if($s->rowCount()>0){
 </div>
 <?php
     }
+
+}
+*/
+
+if(isset($_GET['opt']) AND $_GET['opt'] == "menu"){
+
+
+
 ?>
 
 
@@ -918,10 +997,81 @@ if($s->rowCount()>0){
 </div>
 
 
+<?php
+    
+}
+
+if(isset($_GET['opt']) AND $_GET['opt'] == "reindex"){
+
+
+    $upd_reindex = $db->prepare('UPDATE `keywords` SET `indexed`=NULL,`cache_type`=""');
+    if($upd_reindex->execute()){
+
+        array_map('unlink', glob("../inc/cache/*.html"));
+        array_map('unlink', glob("../inc/cache/*.json"));
+    
+        echo '<div class="alert alert-success" role="alert">Contenido preparado para reindexar, ejecute el proceso en el CRON.</div>';
+    }
+
+
+}
+
+
+
+if(isset($_GET['opt']) AND $_GET['opt'] == "edittext" AND isset($_GET['keyid'])){
+
+    $text_data = $db->query('SELECT *  FROM contents WHERE keyword_id='.intval($_GET['keyid']))->fetch();
+
+    if(!empty($text_data)){
+        $e_spintitle = $text_data['spintitle'];
+        $e_spintext = $text_data['spintext'];
+    }else{
+        $e_spintitle = "";
+        $e_spintext = "";
+    }
+
+
+    echo '<div class="card mt-5">
+    <div class="card-body">
+        <h2 class="card-title" id="atext">EDITAR TEXTOS</h2>
+        <form action="/admin/?opt=edittext&keyid='.$_GET['keyid'].'" method="post">
+            <input type="hidden" name="updatetext" value="1">
+                        <input type="hidden" name="keyword_id" value="'.$_GET['keyid'].'" id="keyword_id" class="form-control form-control-lg">
+                <div class="row">
+                    <div class="col-sm">
+                            <label for="spintitle">SPINTITLE</label>
+                            <input type="text" name="spintitle" id="spintitle" value="'.$e_spintitle.'" placeholder="{}" class="form-control form-control-lg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="spintext">SPINTEXT</label>
+                        <textarea name="spintext" id="spintext" cols="30" rows="3" placeholder="{}" class="form-control form-control-lg">'.$e_spintext.'</textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-sm">
+                            <input type="submit" class="btn btn-success btn-lg mt-3 d-block" value="GUARDAR" />
+                            </br>
+                        </div>
+                    </div>           
+        </form>
+    </div>
+</div>';
+
+
+}
 
 
 
 
+
+if(isset($_GET['opt']) AND $_GET['opt'] == "keywords"){
+
+
+
+?>
 
 
 <div class="card mt-5">
@@ -929,7 +1079,6 @@ if($s->rowCount()>0){
         <h2 class="card-title" id="akeyword">AGREGAR KEYWORDS</h2>
         <form action="" method="post">
             <input type="hidden" name="addkeywords" value="1">
-
 
                     <div class="row">
                         <div class="col-sm">
@@ -957,11 +1106,15 @@ if($s->rowCount()>0){
                                     <th scope="col">INDEXED?</th>
                                     <th scope="col">CACHE TYPE</th>
                                     <th scope="col"></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                     foreach($db->query('SELECT * FROM keywords ORDER BY id ASC')->fetchAll() as $keyword){
+
+                                        
+
                                         echo '<tr><td>'.$keyword['id'].'</td><td>'.$keyword['amazon_term'].'</td><td>'.$keyword['keyword'].'</td><td><a href="/'.$keyword['slug'].'" target="_blank">'.$keyword['slug'].'</a></td><td>';
                                         
                                         if($keyword['indexed'] == 1){
@@ -977,18 +1130,32 @@ if($s->rowCount()>0){
                                         echo '</td><td>'.$keyword['cache_type'].'</td><td><a class="btn btn-danger" href="?delkey='.$keyword['id'].'" onclick="return confirm(\'estas seguro?\')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                                      </svg></a></td></tr>';
+                                      </svg></a></td><td>';
+                                      
+                                      if($db->query('SELECT * FROM contents WHERE keyword_id='.$keyword['id'])->fetch()){
+                                        echo'<a class="btn btn-success" href="?opt=edittext&keyid='.$keyword['id'].'"><i class="fa-solid fa-pen"></i></a></td></tr>';
+                                      }else{
+                                        echo'<a class="btn btn-secondary" href="?opt=edittext&keyid='.$keyword['id'].'"><i class="fa-solid fa-pen"></i></a></td></tr>';
+                                      }
+                                      
+
+
+
                                     }
                                     
                                 ?>
                             </tbody>
-                        </table>                     
+                        </table>
+                        <div class="row"><a href="?opt=reindex">¿Reindexar todo?</a></div>                 
                     </div>
                 </div>
            
     </div>
 </div>
+<?php
 
+                                }
+?>
 
 
 
