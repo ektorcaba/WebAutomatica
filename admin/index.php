@@ -1,5 +1,6 @@
 <?php
 
+
 header('Cache-Control: no-cache, must-revalidate, max-age=0');
 
 
@@ -14,7 +15,9 @@ if(!file_exists('../inc/settings.php')){
         $dbuser = "'.$_POST['dbuser'].'";
         $dbpass = "'.$_POST['dbpass'].'";
         $dbhost = "'.$_POST['dbhost'].'";
-        
+
+        $admin_user = "'.$_POST['admin_user'].'";
+        $admin_pass = "'.sha1($_POST['admin_pass']).'";        
         
         
         
@@ -164,6 +167,19 @@ if(!file_exists('../inc/settings.php')){
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-sm">
+                                <label for="dbuser">Panel Admin Username</label>
+                                <input type="text" autocomplete="off" name="admin_user" id="admin_user" class="form-control form-control-lg">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <label for="dbpass">Panel Admin Password</label>
+                                <input type="password" autocomplete="off" name="admin_pass" id="admin_pass" class="form-control form-control-lg">
+                            </div>
+                        </div>
+
+                        <div class="row">
                                 <div class="col-sm">
                                     <input type="submit" class="btn btn-primary btn-lg mt-3 d-block" value="CONTINUAR" />
                                     </br>
@@ -181,6 +197,15 @@ if(!file_exists('../inc/settings.php')){
 die();
     }
 
+}else{
+
+
+    require '../inc/settings.php';
+
+
+
+require_auth($admin_user,$admin_pass);
+
 }
 
 
@@ -189,7 +214,7 @@ die();
 
 
 
-require '../inc/settings.php';
+
 
 $sets = $db->query("SELECT * FROM settings WHERE domain_id=1")->fetchAll();
 
@@ -1347,7 +1372,7 @@ function require_auth($AUTH_USER,$AUTH_PASS)
                     RewriteRule . - [e=HTTP_AUTHORIZATION:%1]
                 */
 
-
+                
 
                 header('Cache-Control: no-cache, must-revalidate, max-age=0');
 
@@ -1364,7 +1389,7 @@ function require_auth($AUTH_USER,$AUTH_PASS)
 
                 $is_not_authenticated = (
                     !$has_supplied_credentials ||
-                    $_SERVER['PHP_AUTH_USER'] != $AUTH_USER || $_SERVER['PHP_AUTH_PW']   != $AUTH_PASS
+                    $_SERVER['PHP_AUTH_USER'] != $AUTH_USER || sha1($_SERVER['PHP_AUTH_PW'])   != $AUTH_PASS
                 );
 
                 if ($is_not_authenticated) {
