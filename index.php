@@ -3,6 +3,8 @@
 
 
 
+
+
 if(!isset($_GET['k'])){
     $key = $settings['default_term'];
 }else{
@@ -103,7 +105,7 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
 
 
                 //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimstring($product['title'],85)).'</a></p>';
-                echo '<h2 class="title">'.(($product['title'])).'</h2>';
+                echo '<p class="title">'.(($product['title'])).'</p>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
@@ -129,25 +131,26 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
         <?php
 
 
+
         if(!empty($data)){
 
 
             print '<article>';
             foreach($data as $entry){
 
-
-
                 
                 if(!empty($entry['spintitle'])){
-                    print '<h1>'.mb_strtoupper(utf8_encode($entry['spintitle']),'utf-8').'</h1>';
+                    print '<h1>'.mb_strtoupper(($entry['spintitle']),'utf-8').'</h1>';
                 }
 
-                echo htmlspecialchars_decode(utf8_encode($entry['spintext']));
+                echo htmlspecialchars_decode(($entry['spintext']));
                 
 
             }
             print '</article>';
         }
+
+
 
         if(empty($_GET['k'])){
 
@@ -155,7 +158,7 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
             
             print '<article>';
 
-            echo htmlspecialchars_decode(utf8_encode($settings['main_text']));
+            echo htmlspecialchars_decode(($settings['main_text']));
             print '</article>';
 
         }
@@ -193,7 +196,7 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
 
 
                 //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],75)).'</a></p>';
-                echo '<h2 class="title">'.(($product['title'])).'</h2>';
+                echo '<p class="title">'.(($product['title'])).'</p>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';

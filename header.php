@@ -76,10 +76,10 @@
                     echo '<a href="/categoria/'.str_replace(" ","-",strtolower($nav['url'])).'">'.strtoupper($nav['text']).'</a>';
                 }
             ?>
-            <form action="https://www.google.es/search" target="_blank" id="gform">
+            <!--<form action="https://www.google.es/search" target="_blank" id="gform">
                 <input type="text" placeholder="Buscar.." name="q" id="q" autocomplete="off">
                 <input type="hidden" name="q" value="site:<?= $_SERVER['HTTP_HOST']; ?>">
-            </form>
+            </form>//-->
             </div>
             <?php
 

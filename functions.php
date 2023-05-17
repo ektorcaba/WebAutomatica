@@ -82,7 +82,8 @@ if(isset($_GET['k'])){
     $settings['keywords'] = $st->fetchAll(PDO::FETCH_ASSOC);
 
 
-    if(!empty($settings['source_text'])){
+
+    //if(!empty($settings['source_text'])){
 
 
         $spintext_keyword = $settings['source_text'];
@@ -101,7 +102,7 @@ if(isset($_GET['k'])){
         $spintext = $spintax->process(str_replace('__KEYWORD__', $keyword['keyword'],$spintext_keyword));
         $spintitle = $spintax->process(str_replace('__KEYWORD__', $keyword['keyword'],$spintitle_keyword));
         
-        
+
 
         if(!$check_keyword_text['id']){
             $gentext = $db->query('SELECT spintext, spintitle from generated_spintext WHERE content_id='.$keyword['id'])->fetch();
@@ -126,11 +127,8 @@ if(isset($_GET['k'])){
             $data[] = array('spintitle' => $spintitle, 'spintext' => ($spintext));
         }
 
-
-
-
         
-    }    
+    //}  
 
     
 
