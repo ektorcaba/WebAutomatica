@@ -8,4 +8,4 @@ Desarrollo de web de Amazon SEO para despliegue automatico
  - Corregido fallo en textos spin
  - Añadido editor enriquecido para textos por keyword
  - Añadido editor de textos para cada keyword.
- 
+ - Area de administracion protegida por contraseña
