@@ -224,6 +224,12 @@ foreach($sets as $s){
 }
 
 
+
+
+$settings['admin_user']=$admin_user;
+
+
+
 if(isset($_GET['delmenu'])){
 
     $db->query("DELETE FROM menu WHERE id=".$_GET['delmenu']);
@@ -371,6 +377,9 @@ if(!empty($_POST['settings'])){
 if(isset($_POST['setup'])){
     if($_POST['setup']==1){
 
+        unlink($_POST['admin_user']);
+        unlink($_POST['admin_pass']);
+
         $sql = "INSERT INTO domains (id, domain) VALUES (1,'".$_POST['domain']."')";
 
         if($db->query($sql)) {
@@ -439,7 +448,7 @@ $upd_data[] = array(
     ':id' => 8,
     ':domain_id' => $_POST['domain_id'],
     ':key' => 'source_text',
-    ':value' => $_POST['source_text'],
+    ':value' => isset($_POST['source_text']),
 );
 
 
@@ -545,6 +554,38 @@ $upd_data[] = array(
 );
 
 
+
+
+if(!empty($_POST['admin_user']) AND !empty($_POST['admin_pass']) AND !empty($_POST['re_admin_pass']) AND $_POST['re_admin_pass'] == $_POST['admin_pass']){
+
+    $data = '<?php
+
+
+    $dbname = "'.$dbname.'";
+    $dbuser = "'.$dbuser.'";
+    $dbpass = "'.$dbpass.'";
+    $dbhost = "'.$dbhost.'";
+
+    $admin_user = "'.$_POST['admin_user'].'";
+    $admin_pass = "'.sha1($_POST['admin_pass']).'";        
+    
+    
+    
+    $db = new PDO(\'mysql:host=\'.$dbhost.\';dbname=\'.$dbname, $dbuser, $dbpass);
+    
+    
+    
+    
+    ?>';
+
+
+    file_put_contents("../inc/settings.php",$data);
+
+
+}
+
+
+
 foreach($upd_data as $u_data){
     //print_r($u_data);
     $upd_settings = $db->prepare("UPDATE settings SET domain_id=:domain_id, `key`=:key, value=:value WHERE id=:id");
@@ -554,8 +595,11 @@ foreach($upd_data as $u_data){
 
 
 
-    Header('Location: '.$_SERVER['PHP_SELF']);
+    Header('Location: '.$_SERVER['PHP_SELF'].'?opt=opciones');
     Exit(); //optional
+
+
+$flash_message = '<div class="alert alert-success" role="alert">Datos actualizados!</div>';
 
 }
 
@@ -675,8 +719,14 @@ tinymce.init({
     <div class="m-0 p-0 container-fluid">
     <div class="container mb-5">
 
-
 <?php
+
+if(isset($flash_message)){
+  echo $flash_message;  
+}
+
+
+
 
 if(!isset($_GET['opt'])){
 
@@ -874,6 +924,21 @@ if(isset($_GET['opt']) AND $_GET['opt'] == "opciones"){
                             <input type="text" name="default_term" id="default_term" class="form-control form-control-lg" value="<?= $settings['default_term']; ?>">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm">
+                            <label for="sitename">Usuario</label>
+                            <input type="text" name="admin_user" id="admin_user" class="form-control form-control-lg" value="<?= $settings['admin_user']; ?>">
+                    </div>
+                    <div class="col-sm">
+                            <label for="slogan">Contraseña</label>
+                            <input type="password" name="admin_pass" id="admin_pass" class="form-control form-control-lg">
+                    </div>
+                    <div class="col-sm">
+                            <label for="slogan">Repetir Contraseña</label>
+                            <input type="password" name="re_admin_pass" id="re_admin_pass" class="form-control form-control-lg">
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-sm">
                         <input type="submit" class="btn btn-primary btn-lg mt-3 d-block" value="GUARDAR" />
