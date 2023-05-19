@@ -41,6 +41,15 @@ if(!file_exists('../inc/settings.php')){
                 `spintext` longtext NOT NULL
               )');
 
+
+            $db->query('CREATE TABLE `banners` (
+                `id` int(11) NOT NULL,
+                `position` int(11) NOT NULL,
+                `notes` text NOT NULL,
+                `htmlcode` longtext NOT NULL
+            )');
+
+
             $db->query('CREATE TABLE `domains` (
                 `id` int(11) NOT NULL,
                 `domain` varchar(255) NOT NULL
@@ -90,12 +99,14 @@ if(!file_exists('../inc/settings.php')){
 
             
             $db->query('ALTER TABLE `contents` ADD PRIMARY KEY (`id`)');
+            $db->query('ALTER TABLE `banners` ADD PRIMARY KEY (`id`)');
             $db->query('ALTER TABLE `domains` ADD PRIMARY KEY (`id`)');
             $db->query('ALTER TABLE `generated_spintext` ADD PRIMARY KEY (`id`)');
             $db->query('ALTER TABLE `keywords` ADD PRIMARY KEY (`id`)');
             $db->query('ALTER TABLE `menu` ADD PRIMARY KEY (`id`)');
             $db->query('ALTER TABLE `settings` ADD PRIMARY KEY (`id`)');
             $db->query('ALTER TABLE `contents` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT');
+            $db->query('ALTER TABLE `banners` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT');
             $db->query('ALTER TABLE `domains` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT');
             $db->query('ALTER TABLE `generated_spintext` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT');
             $db->query('ALTER TABLE `keywords` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT');
