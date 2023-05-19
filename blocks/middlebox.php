@@ -1,38 +1,7 @@
 <?php
 
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=amu&banner=0EY0Z7JECWC4YZQ40QG2&f=ifr&linkID=755bf00df22890e562fb923c41bae81e&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-
-
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=amu&banner=1JZ0Q2NB0GMW2KVW6D82&f=ifr&linkID=7edb8c4637ef8843155fed0beab778c8&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=audiblees&banner=1EHDJ49RANGK3NQH2JR2&f=ifr&linkID=90529ee3f0dfebdcfd4112ad3a9585b3&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=audiblees&banner=1P89VD69V8HW4WMWGS02&f=ifr&linkID=40cfc07feab400f575609edf43863d5f&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=audiblees&banner=1395EDHTD46N73P3P4G2&f=ifr&linkID=98f1287f507ba4173a8a69e48270f067&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=baby&banner=1ZGQKAFMJX87RESA2202&f=ifr&linkID=6d5e9e2f2f4f654b9efa507ff69404ae&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=baby&banner=0RK5J9RXBVJQ8VHR6WR2&f=ifr&linkID=e9245c506e7f8f4a6323976197322391&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=esdiscover&banner=1GTW70N8RF6VZH7DRV02&f=ifr&linkID=b6c5d5a7f2bc5071b3bf4367f449e11a&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=esdiscover&banner=0WAZQVJ6KEQ4SMWVHHR2&f=ifr&linkID=db87e4a6b42049cf7624bd9f0f504d2a&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=esgifting&banner=0YABC1NQW8D61DHBJMR2&f=ifr&linkID=f144fc145105710b560676671ce6df4f&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=esgifting&banner=10EA58XZGXH783N49T02&f=ifr&linkID=d7f478841c9863c7ae27a46dc993cbcd&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=lista_bodas&banner=0MXJ23E3Z2ZS3M5PFS82&f=ifr&linkID=3382850acdc3aeeec17d81a1e99847a1&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=premium&banner=0X5115VR32VGZVXY8902&f=ifr&linkID=93c850cbba189001a7a3c5362808c787&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=premium&banner=0EMP21769P76KEGTJNR2&f=ifr&linkID=21c9e6fc6792cd730f501a3891388227&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=prime_video&banner=093TP09QSWSGKXVP9S82&f=ifr&linkID=b6589ed8ccd110194bfb6bd46ecf14c4&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=prime_video&banner=13AGZ2WR14JSQE7P1402&f=ifr&linkID=d93f219fc24d6d884917ef6e30a4d52f&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=primevideo&banner=0M6AH5399KQ3621CS8R2&f=ifr&linkID=2002fef44e357b9d499aba7de39b304e&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=primevideo&banner=1BZBS6M6RG9BZB5PRH02&f=ifr&linkID=2e540ae7b3a76af751e16150b1cdcee0&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=primevideo&banner=1AY0VTK72Y3X4GHCN082&f=ifr&linkID=1bb8bc048a13e08c18bfb6da01a3eb02&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=12&l=ur1&category=primevideo&banner=1PQFJ5QBJZEW48E74GG2&f=ifr&linkID=17dfcf61a67bfd7a526ebf75b0fbc430&t=ektorcaba-21&tracking_id=ektorcaba-21" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=primevideo&banner=0W6DJQMXMB4CWCNXS502&f=ifr&linkID=32889314898f0bbf7ca21f4bb0b125f9&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=primevideo&banner=16ZX9D16G2PWFZHFKSR2&f=ifr&linkID=1b7a483a8aabf84362dda762176e78fb&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=primevideo&banner=0KMSJ2GG367GTRV811G2&f=ifr&linkID=7cbd2353914ff64bbfddc13346474ac0&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-$midbanner[] = '<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=30&p=22&l=ur1&category=primevideo&banner=0K802FKZFRAF33RQ1N82&f=ifr&linkID=6ce726b22c1e02458e4417daaa7b19a1&t=ektorcaba-21&tracking_id=ektorcaba-21" width="250" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>';
-
-
+    $banners = $db->query('SELECT * FROM banners WHERE position=2')->fetchAll();
+        
+    echo '<center>'.$banners[rand(0,(count($banners)-1))]['htmlcode'].'</center>';
 
 ?>
-<center>
-<?php //echo $midbanner[rand(0,(count($midbanner)-1))]; ?>
-</center>
