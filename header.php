@@ -7,25 +7,16 @@
     <title><?php
 
 
-        $strings = array(
-            '⇒',
-            '▷',
-            '🥇',
-            '✅',
-            '🔥',
-            '👍',
-            '⭐'
-        );
-        $dot_seo = array_rand($strings);
+
 
 
     if(empty($_GET['k']) AND empty($_GET['q'])){
-        echo $strings[$dot_seo]." ".$settings['sitename']." - ".$settings['slogan'];
+        echo $settings['sitename']." - ".$settings['slogan'];
     }else{
         if(empty($_GET['k'])){
-            echo $strings[$dot_seo]." ".mb_strtoupper(str_replace("-"," ",$_GET['q']),'utf-8')." - ".$settings['sitename'];
+            echo mb_strtoupper(str_replace("-"," ",$_GET['q']),'utf-8')." - ".$settings['sitename'];
         }else{
-            echo $strings[$dot_seo]." ".mb_strtoupper(str_replace("-"," ",$_GET['k']),'utf-8')." - ".$settings['sitename'];
+            echo mb_strtoupper(str_replace("-"," ",$_GET['k']),'utf-8')." - ".$settings['sitename'];
         }
     }
     
