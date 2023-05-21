@@ -215,7 +215,7 @@ die();
 
 
 
-require_auth($admin_user,$admin_pass);
+//require_auth($admin_user,$admin_pass);
 
 }
 
@@ -721,6 +721,9 @@ tinymce.init({
             </li>
             <li class="nav-item">
             <!--<a class="nav-link" href="?opt=textos">TEXTOS</a>//-->
+            </li>
+            <li class="nav-item">
+            <!--<a class="nav-link" href="?opt=banners">BANNERS</a>//-->
             </li>
         </ul>
         </div>
