@@ -1,7 +1,7 @@
     <footer>
         <nav>
         <?php
-
+/*
             if(!empty($ilink)){
 
                 foreach($ilink as $link){
@@ -10,7 +10,7 @@
 
             }
 
-
+*/
         ?>  
         </nav>
         <div class="copy">&copy; <?= $settings['sitename']; ?></div>
