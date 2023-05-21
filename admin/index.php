@@ -723,7 +723,7 @@ tinymce.init({
             <!--<a class="nav-link" href="?opt=textos">TEXTOS</a>//-->
             </li>
             <li class="nav-item">
-            <!--<a class="nav-link" href="?opt=banners">BANNERS</a>//-->
+            <a class="nav-link" href="?opt=banners">BANNERS</a>
             </li>
         </ul>
         </div>
