@@ -756,7 +756,7 @@ require_auth($admin_user,$admin_pass);
 
 
 
-        <a class="navbar-brand" href="/admin">AUTOMATICA</a>
+        <a class="navbar-brand" href="/">Ir a portada</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
