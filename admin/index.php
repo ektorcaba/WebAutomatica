@@ -1,7 +1,19 @@
 <?php
 
+error_reporting(0);
 
-header('Cache-Control: no-cache, must-revalidate, max-age=0');
+
+
+if($_GET['opt'] == "logout"){
+
+    setcookie("user", "", time()-3600);
+    setcookie("pass", "", time()-3600);
+
+    Header('Location: '.$_SERVER['PHP_SELF']);
+    Exit(); //optional
+
+}
+
 
 
 
@@ -215,13 +227,25 @@ die();
 
 
 
-//require_auth($admin_user,$admin_pass);
 
 }
 
 
 
 
+if(isset($_POST['loginform'])){
+
+    if(($_POST['admin_user'] == $admin_user) AND (sha1($_POST['admin_pass']) == $admin_pass)){
+
+        setcookie("user", $_POST['admin_user'], time()+3600);
+        setcookie("pass", sha1($_POST['admin_pass']), time()+3600);
+
+        Header('Location: '.$_SERVER['PHP_SELF']);
+        Exit(); //optional
+
+    }
+
+}
 
 
 
@@ -258,6 +282,13 @@ if(isset($_GET['delkey'])){
 }
 
 
+if(isset($_GET['delbanner'])){
+
+    $db->query("DELETE FROM banners WHERE id=".$_GET['delbanner']);
+    Header('Location: /admin/?opt=banners');
+    Exit(); //optional
+}
+
 
 
 if(!empty($_POST['addtext'])){
@@ -277,6 +308,22 @@ if(!empty($_POST['addtext'])){
     Exit(); //optional
 
 }
+
+if(!empty($_POST['addbanner'])){
+
+        $sql = "INSERT INTO banners (id, position,notes,htmlcode) VALUES (NULL,'".$_POST['position']."','".$_POST['notes']."','".$_POST['htmlcode']."')";
+
+        $db->query($sql);
+
+
+    Header('Location: /admin/?opt=banners');
+    Exit(); //optional
+
+}
+
+
+
+
 
 
 if(!empty($_POST['updatetext'])){
@@ -698,9 +745,17 @@ tinymce.init({
 
 </head>
 <body>
+<?php
+
+require_auth($admin_user,$admin_pass);
+
+?>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
+
+
+
         <a class="navbar-brand" href="/admin">AUTOMATICA</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -720,10 +775,13 @@ tinymce.init({
             <a class="nav-link" href="?opt=keywords">KEYWORDS</a>
             </li>
             <li class="nav-item">
-            <!--<a class="nav-link" href="?opt=textos">TEXTOS</a>//-->
+            <a class="nav-link" href="?opt=banners">BANNERS</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="?opt=banners">BANNERS</a>
+            <a class="nav-link" href="?opt=logout"><b>SALIR</b></a>
+            </li>
+            <li class="nav-item">
+            <!--<a class="nav-link" href="?opt=textos">TEXTOS</a>//-->
             </li>
         </ul>
         </div>
@@ -1039,6 +1097,99 @@ if($s->rowCount()>0){
 
 }
 */
+
+
+
+if(isset($_GET['opt']) AND $_GET['opt'] == "banners"){
+
+
+
+    ?>
+    
+    
+    
+    
+        <div class="card mt-5">
+        <div class="card-body">
+            <h2 class="card-title" id="acodigohtml">AGREGAR BANNER</h2>
+            <form action="" method="post">
+                <input type="hidden" name="addbanner" value="1">
+                <div class="row">
+                        <div class="col-sm">
+                            <label for="notes">Notas</label>
+                            <textarea name="notes" id="notes" cols="30" rows="2" class="form-control form-control-lg" placeholder="Introducir descripcion"></textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-sm">
+                            <label for="codigohtml">CODIGO HTML</label>
+                            <textarea name="htmlcode" id="htmlcode" cols="30" rows="3" class="form-control form-control-lg" placeholder="Introducir codigo HTML"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                        <label for="position_banner">POSICIÓN DEL BANNER</label>
+                            <select name="position" id="position" class="form-control form-control-lg">
+                                <option value="1" default>IZQUIERDA</option>
+                                <option value="2">CENTRO</option>
+                                <option value="3">DERECHA</option>
+                            </select>
+    
+                        </div>
+                    </div>       
+                    <div class="row">
+                        <div class="col-sm">
+                            <input type="submit" class="btn btn-success btn-lg mt-3 d-block" value="INSERTAR" />
+    
+                        </div>
+                    </div> 
+    </br>
+                    <div class="row">
+                        <div class="col-sm">
+                            <table class="table table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">NOTAS</th>
+                                        <th scope="col">POSICION</th>
+                                        <th scope="col">#</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        foreach($db->query('SELECT * FROM banners ORDER BY id DESC')->fetchAll() as $banner){
+                                            echo '<tr><td>'.$banner['notes'].'</td><td>';
+                                            
+                                            if($banner['position'] == 1){
+                                                echo 'IZQUIERDA';
+                                            }elseif($banner['position'] == 2){
+                                                echo 'CENTRO';
+                                            }elseif($banner['position'] == 3){
+                                                echo 'DERECHA';
+                                            }
+                                            
+                                            echo '</td><td><a class="btn btn-danger" href="?delbanner='.$banner['id'].'" onclick="return confirm(\'estas seguro?\')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                          </svg></a></td></tr>';
+                                        }
+                                        
+                                    ?>
+                                </tbody>
+                            </table>                     
+                        </div>
+                    </div>
+    
+    
+            </form>
+        </div>
+    </div>
+    
+    
+    <?php
+        
+    }
+
+
 
 if(isset($_GET['opt']) AND $_GET['opt'] == "menu"){
 
@@ -1442,16 +1593,19 @@ function require_auth($AUTH_USER,$AUTH_PASS) {
 
 
 
-function require_auth($AUTH_USER,$AUTH_PASS)
-            {
-                
+
                 /*
                     RewriteEngine On
                     RewriteCond %{HTTP:Authorization} ^(.)
                     RewriteRule . - [e=HTTP_AUTHORIZATION:%1]
-                */
+                
 
                 
+
+function require_auth($AUTH_USER,$AUTH_PASS)
+            {
+                
+
 
                 header('Cache-Control: no-cache, must-revalidate, max-age=0');
 
@@ -1478,6 +1632,50 @@ function require_auth($AUTH_USER,$AUTH_PASS)
                 }
 
             }
+*/
+
+
+function require_auth($AUTH_USER,$AUTH_PASS){
+
+
+
+    if(($_COOKIE['user'] == $AUTH_USER) AND ($_COOKIE['pass'] == $AUTH_PASS)){
+
+
+
+
+    }else{
+
+
+
+
+
+
+                echo'<form method="post" action=""><div class="container"><br /><h2>Acceso privado</h2><input type="hidden" name="loginform" value="1"><div class="row">
+                    <div class="col-sm">
+                            <label for="sitename">Usuario</label>
+                            <input type="text" name="admin_user" id="admin_user" class="form-control form-control-lg">
+                    </div>
+                    <div class="col-sm">
+                            <label for="slogan">Contraseña</label>
+                            <input type="password" name="admin_pass" id="admin_pass" class="form-control form-control-lg">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        <input type="submit" class="btn btn-primary btn-lg mt-3 d-block" value="ENTRAR" />
+                    </div>
+                </div></div></form>';
+
+
+        die();
+    }
+
+}
+
+
+
 
 
 ?>
