@@ -106,7 +106,7 @@ function get_amazon_url_default($keyword, $sleep = 5){
         $data[] = $it;
       }
 
-      sleep(rand(2,5));
+      sleep(2);
 
     }
 
@@ -118,10 +118,11 @@ function get_amazon_url_default($keyword, $sleep = 5){
         return json_encode($data_obj);       
     }else{
 
+/*
         if(file_exists($cache_directory.sha1(str_replace("-"," ", $settings['default_term'])).".json")){
             return file_get_contents($cache_directory.sha1(str_replace("-"," ", $settings['default_term'])).".json");
         }
-
+*/
 
     }
 
@@ -154,7 +155,7 @@ function get_amazon_url($keyword, $sleep = 5){
         $data[] = $it;
       }
 
-      sleep(rand(2,5));
+      sleep(2);
 
     }
 
@@ -166,11 +167,11 @@ function get_amazon_url($keyword, $sleep = 5){
         return json_encode($data_obj);       
     }else{
 
-
+/*
         if(file_exists($cache_directory.sha1(str_replace("-"," ", $settings['default_term'])).".json")){
             return file_get_contents($cache_directory.sha1(str_replace("-"," ", $settings['default_term'])).".json");
         }
-
+*/
     }
 
 
@@ -215,7 +216,7 @@ global $cache_directory, $db;
         }
 
 
-        sleep(rand(2,5));
+        sleep(2);
 
     }else{
 
@@ -268,7 +269,7 @@ if(( !file_exists($cache_directory.sha1($palabra_clave).".html")) AND ( !file_ex
         }
 
 
-        sleep(rand(2,5));
+        sleep(2);
 
 
 
