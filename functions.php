@@ -178,7 +178,7 @@ function search_rand_amazon_products($original_keyword,$reset=0){
 
     //if($keyword['cache_type'] === "html"){
 
-
+/*
 
         if(file_exists("inc/cache/".sha1($keyword_slug).".html")){
 
@@ -267,7 +267,7 @@ function search_rand_amazon_products($original_keyword,$reset=0){
             
             //return array();
         }
-
+*/
 
 
 
