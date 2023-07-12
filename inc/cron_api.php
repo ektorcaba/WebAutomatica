@@ -349,7 +349,7 @@ function getContentApi($keyword, $tag, $page = 1){
         sleep(3);
         getContentApi($keyword, $tag, $page);
     }
-    if(!is_bool($fp)){
+    if(is_bool($fp) === false){
         $response = @stream_get_contents ( $fp );
         if ($response === false) {
             //throw new Exception ( "Exception Occured" );
