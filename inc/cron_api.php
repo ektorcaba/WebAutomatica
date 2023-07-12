@@ -349,12 +349,14 @@ function getContentApi($keyword, $tag, $page = 1){
         sleep(3);
         getContentApi($keyword, $tag, $page);
     }
-    $response = @stream_get_contents ( $fp );
-    if ($response === false) {
-        //throw new Exception ( "Exception Occured" );
-        sleep(3);
-        getContentApi($keyword, $tag, $page);
-
+    if(!is_bool($fp)){
+        $response = @stream_get_contents ( $fp );
+        if ($response === false) {
+            //throw new Exception ( "Exception Occured" );
+            sleep(3);
+            getContentApi($keyword, $tag, $page);
+    
+        }
     }
 
     return $response;
