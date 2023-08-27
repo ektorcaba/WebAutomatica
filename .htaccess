@@ -2,6 +2,8 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^sitemap(.*)$ /sitemap.php?k=$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^legal$ /legal.php [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^categoria/(.*)$ /search.php?q=$1 [L]
