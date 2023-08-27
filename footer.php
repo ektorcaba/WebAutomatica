@@ -13,7 +13,7 @@
 */
         ?>  
         </nav>
-        <div class="copy">&copy; <?= $settings['sitename']; ?></div>
+        <div class="copy">&copy; <?= $settings['sitename']; ?> | <a href="/legal">LEGAL</a></div>
     </footer>
     </div>
     <div class="rightbox"><?php include "blocks/rightbox.php"; ?></div>
