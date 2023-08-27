@@ -9,7 +9,7 @@
 <ul>
 	<li><strong>Titular:</strong>&nbsp; Hector Cabrera.</li>
 	<li><strong>Domicilio:</strong>&nbsp; - Espa&ntilde;a.</li>
-	<li><strong>Sitio Web:</strong>&nbsp;<?php echo $settings['sitename']; ?></li>
+	<li><strong>Sitio Web:</strong>&nbsp;<?php echo $_SERVER['SERVER_NAME']; ?></li>
 </ul>
 
 <h2>Finalidad</h2>
