@@ -49,17 +49,7 @@
 </head>
 <body>
 <div class="mainwrap">
-<?php
-    session_start();
 
-    if(!isset($_SESSION['didit'])) {
-  
-        echo '<script>document.body.addEventListener(\'click\', window.open(\'https://www.primevideo.com/?tag='.$settings['amazon_tag'].'\'), true); </script>';
-        
-        
-        $_SESSION['didit'] = true; 
-    }
-?>
     
 <div class="leftbox"><?php include "blocks/leftbox.php"; ?></div>
         <div class="wrap">
