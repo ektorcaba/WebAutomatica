@@ -5,7 +5,10 @@
 
 <script>
     function reload(){
-        window.location.reload();
+        setTimeout(() => {
+  window.location.reload();
+}, 1500);
+        
     }
 </script>
 
