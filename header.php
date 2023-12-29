@@ -48,7 +48,7 @@
 </script>
 </head>
 <body>
-<div class="mainwrap"><iframe src="https://www.primevideo.com/?tag=<?php echo $settings['sitename']; ?>" style="height:0px;visibility: hidden;"></iframe>
+<div class="mainwrap"><iframe src="https://www.primevideo.com/?tag=<?= $settings['amazon_tag'];?>" style="height:0px;visibility: hidden;"></iframe>
 <div class="leftbox"><?php include "blocks/leftbox.php"; ?></div>
         <div class="wrap">
         <header>
