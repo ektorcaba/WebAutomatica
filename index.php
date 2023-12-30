@@ -115,24 +115,15 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
 
                 echo '<div class="entry">';
 
-                if(!isset($_SESSION['didit2'])) {
-              
-                    
-                    echo '<div class="imgbox"><a href="https://www.primevideo.com/?tag='.$settings['amazon_tag'].'" onclick="reload()" rel="sponsored" target="_blank"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
 
-                    
-                    
-                    $_SESSION['didit2'] = true; 
-                }else{
-                    echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
+                    echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="plink"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
 
-                }
 
                 
 
 
                 //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimstring($product['title'],85)).'</a></p>';
-                echo '<p class="title">'.(($product['title'])).'</p>';
+                echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="plink">'.(($product['title'])).'</a></p>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
@@ -219,11 +210,11 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
             foreach(array_slice($content_amazon,$settings['num_results'],$settings['num_related_results']) as $product){
                 echo '<div class="entry">';
 
-                echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
+                echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="plink"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
 
 
                 //echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.eliminar_acentos(trimString($product['title'],75)).'</a></p>';
-                echo '<p class="title">'.(($product['title'])).'</p>';
+                echo '<p class="title"><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="plink">'.(($product['title'])).'</a></p>';
 
                 if(!empty($product['price'])){
                     //echo '<div class="onbottom"><a href="'.$product['link'].'" rel="sponsored" target="_blank">'.$product['price'].'</a></div></div>';
