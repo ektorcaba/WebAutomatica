@@ -117,7 +117,7 @@ foreach(array_slice($content_amazon,0,$settings['num_results']) as $product){
                 echo '<div class="entry">';
 
 
-                    echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="plink" onclick="reload(event);"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
+                    echo '<div class="imgbox"><a href="'.$product['link'].'" rel="sponsored" target="_blank" class="plink"><img loading="lazy" src="'.cacheimg($product['image']).'" alt="'.($product['title']).'"></a></div>';
 
 
                 
