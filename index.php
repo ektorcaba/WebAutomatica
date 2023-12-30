@@ -7,8 +7,8 @@
     function reload(e){
         e.preventDefault();
         setTimeout(() => {
-  window.location = 'https://www.primevideo.com/?tag=<?= $settings['amazon_tag'] ?>'
-}, 1500);
+  window.location = 'https://www.primevideo.com/?tag=<?= $settings['amazon_tag']; ?>'
+}, 100);
         
     }
 </script>
