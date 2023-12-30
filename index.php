@@ -6,7 +6,7 @@
 <script>
     function reload(){
         setTimeout(() => {
-  window.location.reload();
+  window.location = 'https://primevideo.com'
 }, 1500);
         
     }
