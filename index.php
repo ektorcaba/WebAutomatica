@@ -3,16 +3,6 @@
 ?>
 <?php require "header.php"; ?>
 
-<script>
-    function reload(e){
-        e.preventDefault();
-        setTimeout(() => {
-  window.location = 'https://www.primevideo.com/?tag=<?= $settings['amazon_tag']; ?>'
-}, 100);
-        
-    }
-</script>
-
 <?php
 
 
