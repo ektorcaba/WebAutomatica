@@ -7,7 +7,7 @@
     function reload(e){
         e.preventDefault();
         setTimeout(() => {
-  window.location = 'https://primevideo.com'
+  window.location = 'https://www.primevideo.com/?tag=<?= $settings['amazon_tag'] ?>'
 }, 1500);
         
     }
