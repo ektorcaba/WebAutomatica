@@ -37,7 +37,7 @@ a{
 
 
 .wrap {
-    max-width: 980px;
+    /*max-width: 980px;*/
     margin: auto;
     background-color: #fff;
     padding: 10px;
