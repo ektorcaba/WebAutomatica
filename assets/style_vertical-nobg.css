@@ -71,7 +71,7 @@ article img {
 
 
 .wrap {
-max-width: 980px;
+/*max-width: 980px;*/
 margin: auto;
 padding:10px;
 background-color: #ffffff;
