@@ -7,7 +7,7 @@
 <p>En cumplimiento del art&iacute;culo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Informaci&oacute;n y Comercio Electr&oacute;nico, el Titular expone sus datos identificativos:</p>
 
 <ul>
-	<li><strong>Titular:</strong>&nbsp; Hector Cabrera.</li>
+	<li><strong>Titular:</strong>&nbsp; El Propietario de este sitio</li>
 	<li><strong>Domicilio:</strong>&nbsp; - Espa&ntilde;a.</li>
 	<li><strong>Sitio Web:</strong>&nbsp;<?php echo $_SERVER['SERVER_NAME']; ?></li>
 </ul>
