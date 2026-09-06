@@ -325,21 +325,64 @@ function search_amazon_products($keyword_link, $is_menu=0){
             $xquery = '//div[@data-component-type="s-search-result"]';           
             $links = $xp->query($xquery);
 
+			
+			
+			
             foreach($links as $l){
-                    if(@(trim($xp->query('.//span[@class="s-label-popover-default"]',$l)->item(0)->textContent)) != "Patrocinado"){
+				
+				
+// 1. Verificar si es un producto patrocinado de forma segura
+$sponsoredNode = $xp->query('.//span[contains(@class, "s-label-popover-default")]', $l)->item(0);
+$isSponsored = $sponsoredNode ? trim($sponsoredNode->textContent) === "Patrocinado" : false;
 
-                        $lpart = explode("/dp/",trim($xp->query('.//h2/a',$l)->item(0)->getAttribute('href')));
+if (!$isSponsored) {
 
+    // 2. Extracción segura del ASIN
+    // Primero intenta leer el atributo data-asin del elemento raíz, si no existe usaXPath
+    $asin = $l->getAttribute("data-asin");
+    if (empty($asin)) {
+        $asinNode = $xp->query('.//@data-asin', $l)->item(0);
+        $asin = $asinNode ? $asinNode->nodeValue : '';
+    }
 
-                        $products[] = array(
-                            'asin' => $l->getAttribute("data-asin"),
-                            'title' => trim($xp->query('.//h2',$l)->item(0)->textContent),
-                            'image' => $xp->query('.//img[@class="s-image"]', $l)->item(0)->getAttribute("src"),
-                            'link' => 'https://www.amazon.es'.$lpart[0].'/dp/'.$l->getAttribute("data-asin").'?tag='.$amz_tag,
-                            'price' => trim($xp->query('.//span[@class="a-offscreen"]',$l)->item(0)->textContent)
-                        );
+    // 3. Extracción segura del título (Amazon a veces usa h2 > a o h2 > span)
+    $titleNode = $xp->query('.//h2', $l)->item(0);
+    $title = $titleNode ? trim($titleNode->textContent) : '';
 
-                    }
+    // 4. Extracción segura de la imagen
+    $imgNode = $xp->query('.//img[contains(@class, "s-image")]', $l)->item(0);
+    $image = $imgNode ? $imgNode->getAttribute('src') : '';
+
+    // 5. Extracción segura del enlace y construcción de la URL con ASIN
+    $linkNode = $xp->query('.//h2//a', $l)->item(0);
+    $href = $linkNode ? $linkNode->getAttribute('href') : '';
+    
+    if (!empty($href)) {
+        $lpart = explode("/dp/", $href);
+        $linkPath = $lpart[0];
+    } else {
+        $linkPath = '/dp/' . $asin;
+    }
+    
+    $link = !empty($asin) 
+        ? 'https://www.amazon.es' . $linkPath . '/dp/' . $asin . '?tag=' . $amz_tag 
+        : '';
+
+    // 6. Extracción segura del precio (captura la primera coincidencia a-offscreen)
+    $priceNode = $xp->query('.//span[contains(@class, "a-offscreen")]', $l)->item(0);
+    $price = $priceNode ? trim($priceNode->textContent) : '';
+
+    // Guardar en el array solo si tenemos datos mínimos (como el título)
+    if (!empty($title)) {
+        $products[] = array(
+            'asin'  => $asin,
+            'title' => $title,
+            'image' => $image,
+            'link'  => $link,
+            'price' => $price
+        );
+    }
+}
                 
             }
 
