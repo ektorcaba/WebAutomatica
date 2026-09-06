@@ -2,7 +2,7 @@
 
 Desarrollo de web de Amazon SEO para despliegue automatico
 
- - Update 2023 -
+ - Update 2026 -
  - Separado secciones en administracion.
  - Activada la reindexacion de las keywords para nuevo rastreo
  - Corregido fallo en textos spin
