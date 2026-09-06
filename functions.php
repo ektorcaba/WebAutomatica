@@ -430,7 +430,7 @@ if($keyword['indexed'] !== 1){
 	http_response_code(503);
 
 	// (Opcional) Indicar a los buscadores cuándo volver a intentarlo (ej. en 24 horas = 86400 segundos)
-	header('Retry-After: 86400');
+	header('Retry-After: 259200');
 
 	// (Opcional) Evitar que la respuesta vacía/temporal se quede cacheada
 	header('Cache-Control: no-cache, no-store, must-revalidate');
